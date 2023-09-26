@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,13 +46,13 @@
                 <a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a> 
               </div>
             </li>
-            <a class="nav-link" href="categoria.html">Categorias</a>
+            <a class="nav-link" th:href="@{/categorias}">Categorias</a>
             <a class="nav-link" href="#">Eventos</a>
           </ul>
           
           <div class="wrapper">
             <div class="login">
-              <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+              <a th:href="@{/login}"><i class="fa-solid fa-user"></i> Login</a>
             </div>
           <!--
             <div class="searchBar">

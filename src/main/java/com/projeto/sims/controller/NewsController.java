@@ -6,7 +6,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto.sims.Noticia;
 
@@ -26,21 +25,36 @@ public class NewsController {
 	public String index() {
 		return "index";
 	}
-	
+
+	@GetMapping("/cadastro")
+	public String cadastro() {
+		return "cadastro";
+	}
+
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+
+	@GetMapping("/categorias")
+	public String categorias() {
+		return "categoria";
+	}
+
 	@GetMapping("/{cidade}")
 	public String obterNoticias(@PathVariable String cidade, Model model) {
-	    // Verifique se a cidade é reconhecida
-	    if (!siteCidade.containsKey(cidade)) {
-	        return handleCidadeNaoReconhecida(cidade, model);
-	    }
+		// Verifique se a cidade é reconhecida
+		if (!siteCidade.containsKey(cidade)) {
+			return handleCidadeNaoReconhecida(cidade, model);
+		}
 
-	    return puxarNoticias(cidade, model);
+		return puxarNoticias(cidade, model);
 	}
-	
+
 	private String handleCidadeNaoReconhecida(String cidade, Model model) {
-	    model.addAttribute("city", cidade);
-	    model.addAttribute("news", "Cidade não reconhecida: " + cidade);
-	    return "erro";
+		model.addAttribute("city", cidade);
+		model.addAttribute("news", "Cidade não reconhecida: " + cidade);
+		return "erro";
 	}
 
 	// associando e armazenando urls específicas para cada cidade
@@ -98,7 +112,7 @@ public class NewsController {
 			Document document = Jsoup.connect(url).get();
 			Elements noticias = document.select(seletor);
 
-			List<Noticia> noticiasList = new ArrayList<>(); // Crie uma lista de Noticias
+			List<Noticia> noticiasList = new ArrayList<>(); 
 
 			int contadorLinks;
 
@@ -131,7 +145,7 @@ public class NewsController {
 								if (imagem == null | imagem.isEmpty()) {
 									imagem = "https://bertioga.sp.gov.br/wp/wp-content/uploads/2022/10/brasao-de-bertioga.png";
 								}
-
+								
 								Noticia topico = new Noticia(imagem, title, data, content, urlNoticia);
 								noticiasList.add(topico); // Adicione cada notícia à lista
 
@@ -531,12 +545,12 @@ public class NewsController {
 							break;
 						}
 					}
-				} 
+				}
 				break;
-				
+
 			default:
-		        throw new IllegalArgumentException("Cidade inválida: " + cidade);
-		}
+				throw new IllegalArgumentException("Cidade inválida: " + cidade);
+			}
 
 			// Adicione a lista de notícias ao modelo
 
@@ -548,26 +562,26 @@ public class NewsController {
 			return "noticias";
 
 		} catch (IOException e) {
-	        e.printStackTrace();
-	        model.addAttribute("city", cidade);
-	        model.addAttribute("news", "Erro de E/S (IOException).");
-	        return "erro";
-	    } catch (IllegalArgumentException e) {
-	        e.printStackTrace();
-	        model.addAttribute("city", cidade);
-	        model.addAttribute("news", "Argumento inválido (IllegalArgumentException).");
-	        return "erro";
-	    } catch (RuntimeException e) {
-	        e.printStackTrace();
-	        model.addAttribute("city", cidade);
-	        model.addAttribute("news", "Erro de execução (RuntimeException).");
-	        return "erro";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        model.addAttribute("city", cidade);
-	        model.addAttribute("news", "Erro ao buscar notícias (Exception).");
-	        return "erro";
-	    }
+			e.printStackTrace();
+			model.addAttribute("city", cidade);
+			model.addAttribute("news", "Erro de E/S (IOException).");
+			return "erro";
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			model.addAttribute("city", cidade);
+			model.addAttribute("news", "Argumento inválido (IllegalArgumentException).");
+			return "erro";
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			model.addAttribute("city", cidade);
+			model.addAttribute("news", "Erro de execução (RuntimeException).");
+			return "erro";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("city", cidade);
+			model.addAttribute("news", "Erro ao buscar notícias (Exception).");
+			return "erro";
+		}
 
 	}
 }

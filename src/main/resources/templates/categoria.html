@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,7 @@
     <!--Inicio do Header-->
     <header class="home-header">
       <nav class="navbar navbar-expand-lg navbar-light bg">
-        <a href="index.html" onclick="ScrollTop()"><div class="div-logo">
+        <a th:href="@{/}" onclick="ScrollTop()"><div class="div-logo">
           <img src="images/SIMS_VERDE_PASTEL.svg" id="logo" alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
         </div></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="toggle-navbar">
@@ -37,23 +37,23 @@
                 Baixada Santista
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
-                <a class="dropdown-item" href="#">Santos</a>
-                <a class="dropdown-item" href="#">Praia Grande</a>
-                <a class="dropdown-item" href="#">São Vicente</a>
-                <a class="dropdown-item" href="#">Guarujá</a>
-                <a class="dropdown-item" href="#">Cubatão</a>
-                <a class="dropdown-item" href="#">Itanhaém</a>
-                <a class="dropdown-item" href="#">Peruíbe</a>
-                <a class="dropdown-item" href="#">Bertioga</a>
-                <a class="dropdown-item" href="#">Mongaguá</a> 
+                <a class="dropdown-item" th:href="@{/santos}">Santos</a>
+                <a class="dropdown-item" th:href="@{/praiagrande}">Praia Grande</a>
+                <a class="dropdown-item" th:href="@{/saovicente}">São Vicente</a>
+                <a class="dropdown-item" th:href="@{/guaruja}">Guarujá</a>
+                <a class="dropdown-item" th:href="@{/cubatao}">Cubatão</a>
+                <a class="dropdown-item" th:href="@{/itanhaem}">Itanhaém</a>
+                <a class="dropdown-item" th:href="@{/peruibe}">Peruíbe</a>
+                <a class="dropdown-item" th:href="@{/bertioga}">Bertioga</a>
+                <a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a> 
               </div>
             </li>
-            <a class="nav-link" href="categoria.html">Categorias</a>
+            <a class="nav-link" th:href="@{/categorias}">Categorias</a>
             <a class="nav-link" href="#">Eventos</a>
           </ul>
           <div class="wrapper">
             <div class="login">
-              <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+              <a th:href="@{/login}"><i class="fa-solid fa-user"></i> Login</a>
             </div>
             <!--<div class="searchBar">
               <input id="searchQueryInput" type="text" placeholder="O que você procura ?" value="" />

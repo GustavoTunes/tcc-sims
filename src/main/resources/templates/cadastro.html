@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
 </head>
 <body id="cadastro">
     <header class="cadastro-header">
-        <a href="./index.html">
+        <a th:href="@{/}">
             <img src="images/SIMS_VERDE_PASTEL.svg" id="cadastro-logo" alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
         </a>
     </header>
@@ -39,7 +39,7 @@
                 </div>
                 <input type="submit" value="Avançar" class="btn btn-primary" id="avancar">
             </form>
-            <button type="button" class="btn btn-primary" id="voltar" onclick="window.location.href = './login.html'">Voltar</button>
+            <button type="button" class="btn btn-primary" id="voltar" th:onclick="window.location.href = 'login'">Voltar</button>
     </main>
 
     <script src="./scripts/main.js"></script>
