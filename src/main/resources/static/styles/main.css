@@ -16,6 +16,7 @@ body {
   font-size: 14px;
   display: flex;
   flex-direction: column;
+  background-color: #f5f5f5;
 }
 
 .home-header {
@@ -60,9 +61,8 @@ footer {
   width: 100%;
   display: flex;
   justify-content: center;
-  float: left;
   margin-top: 0.5rem;
-  padding-left: 10rem;
+  padding-left: 35%;
 }
 
 .navbar ul {
@@ -119,9 +119,13 @@ footer {
   margin-right: 40px;
 }
 
+#login-icon {
+  margin: 8px 5% 0 auto;
+}
+
 /* ESPAÇAMENTO ENTRE ITEMS DO NAVBAR */
-.home-header a:not(.dropdown-item) {
-  margin-right: 3rem;
+#navbar a:not(.dropdown-item):not(#login-icon) {
+  margin-right: 0;
 }
 
 /* INFORMAÇÕES */
@@ -285,7 +289,7 @@ footer p {
 
 
 .news-container {
-  padding: 20px;
+  margin-top: 100px;
   margin: 2.5rem 0;
   width: 100%;
 }
@@ -298,12 +302,13 @@ footer p {
 .news-content {
   float: left;
   padding-bottom: 1.5rem;
+  display: table;
+  padding: 20px;
 }
 
 .news-item {
   width: 100%;
-  height: 350px;
-  padding-bottom: 20px;
+  height: 280px;
 }
 
 .news-desc h1 {
@@ -420,11 +425,10 @@ footer p {
 /* LOGIN E CADASTRO*/
 
 #login,
-#cadastro {
+#cadastro{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
   background: rgb(2, 61, 49);
   background: linear-gradient(324deg, rgba(2, 61, 49, 1) 0%, rgba(1, 32, 48, 1) 50%, rgba(2, 10, 61, 1) 100%);
@@ -438,6 +442,7 @@ footer p {
   padding: 2rem;
   border-radius: 5px;
   border-radius: 30px;
+  margin-bottom: 80px;
 }
 
 .cadastro-container {
@@ -446,9 +451,8 @@ footer p {
   text-align: center;
   padding: 2rem;
   border-radius: 5px;
-  padding-bottom: 1rem;
   border-radius: 30px;
-  margin-top: 12rem;
+  margin-bottom: 75px;
 }
 
 .input-group {
@@ -458,8 +462,6 @@ footer p {
 
 label {
   text-align: left;
-  margin: 0;
-  margin-top: 10px;
 }
 
 input:not(#entrar) {
@@ -486,12 +488,18 @@ input:not(#entrar) {
   border-radius: 30px;
 }
 
-.cadastro-container .btn {
-  margin-top: 2rem;
+.login-header {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 16;
+  margin-top: -100px;
+  margin-bottom: 100px;
 }
 
 .cadastro-header {
-  background-color: red;
   width: 100%;
   padding: 1rem;
   text-align: center;
@@ -500,16 +508,7 @@ input:not(#entrar) {
   z-index: 16;
 }
 
-.cadastro-logo img {
-  background-color: goldenrod;
-  float: left;
-  width: 50px;
-  max-width: 200px;
-  margin-right: 20%;
-}
-
-.cadastro-header div {
-  padding: 1rem;
-  top: 0;
-  left: 0;
+#login-logo {
+  max-width: 50px;
+  height: auto;
 }

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagina inial do projeto SIMS</title>
+  <title>Projeto SIMS</title>
   <link rel="stylesheet" th:href="@{/styles/main.css}">
   <link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -24,7 +24,7 @@
 <body>
   <header class="home-header">
     <nav class="navbar navbar-expand-lg navbar-light bg">
-      <a href="index.html" onclick="ScrollTop()">
+      <a onclick="ScrollTop()">
         <div class="div-logo">
           <img th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
             alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
@@ -208,7 +208,7 @@
       <p>Esse é um projeto de trabalho acadêmico do curso de SI FATEC Rubens Lara.</p>
     </div>
   </footer>
-  <script src="./scripts/main.js"></script>
+  <script th:src="@{./scripts/main.js}"></script>
   <!-- Bootstrap scripts -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
