@@ -1,16 +1,38 @@
-package com.projeto.jdbc.model;
+package com.projeto.banco.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//import lombok.Data;
+
+//@Data
+@Entity
+@Table(name="usuarios")
 public class Usuario {
-	private int id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(name = "nome_completo")
 	private String nomeCompleto;
+	
+	@Column(name = "nome_usuario")
 	private String nomeUsuario;
+	
 	private String email;
 	private String senha;
+	
+	@Column(name = "data_nascimento")
 	private Date dataNascimento;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 

@@ -1,35 +1,13 @@
-package com.projeto.jdbc.service;
+package com.projeto.banco.service;
 
 import java.util.List;
 
-import com.projeto.jdbc.model.Usuario;
-import com.projeto.jdbc.resources.UsuarioDAO;
+import com.projeto.banco.model.Usuario;
 
-public class UsuarioService {
-
-    private UsuarioDAO usuarioDAO;
-
-    public UsuarioService() {
-        this.usuarioDAO = new UsuarioDAO();
-    }
-
-    public boolean inserirUsuario(Usuario usuario) {
-        return usuarioDAO.inserirUsuario(usuario);
-    }
-
-    public List<Usuario> obterTodosUsuarios() {
-        return usuarioDAO.obterTodosUsuarios();
-    }
-
-    public Usuario obterUsuarioPorId(int id) {
-        return usuarioDAO.obterUsuarioPorId(id);
-    }
-
-    public boolean atualizarUsuario(Usuario usuario) {
-        return usuarioDAO.atualizarUsuario(usuario);
-    }
-
-    public boolean excluirUsuario(int id) {
-        return usuarioDAO.excluirUsuario(id);
-    }
+public interface UsuarioService {
+	Usuario saveUsuario(Usuario usuario);
+	List<Usuario> getAllUsuarios();
+	Usuario getUsuarioById(long id);
+	Usuario updateUsuario(Usuario usuario, long id);
+	void deleteUsuario(long id);
 }

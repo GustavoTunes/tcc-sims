@@ -1,4 +1,4 @@
-package com.projeto.jdbc.service;
+package com.projeto.banco.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

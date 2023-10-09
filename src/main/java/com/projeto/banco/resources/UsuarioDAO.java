@@ -1,4 +1,4 @@
-package com.projeto.jdbc.resources;
+package com.projeto.banco.resources;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projeto.jdbc.model.Usuario;
-import com.projeto.jdbc.service.ConnectionFactory;
+import com.projeto.banco.model.Usuario;
+import com.projeto.banco.service.ConnectionFactory;
 
 public class UsuarioDAO {
 
@@ -78,7 +78,7 @@ public class UsuarioDAO {
             preparedStatement.setString(3, usuario.getEmail());
             preparedStatement.setString(4, usuario.getSenha());
             preparedStatement.setDate(5, new java.sql.Date(usuario.getDataNascimento().getTime()));
-            preparedStatement.setInt(6, usuario.getId());
+            preparedStatement.setLong(6, usuario.getId());
 
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
