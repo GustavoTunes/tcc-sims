@@ -1,188 +1,224 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagina inial do projeto SIMS</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <title>Projeto SIMS</title>
+  <link rel="stylesheet" th:href="@{/styles/main.css}">
   <link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-194JYMPFEE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-194JYMPFEE');
   </script>
 </head>
+
 <body>
-    <header class="home-header">
-      <nav class="navbar navbar-expand-lg navbar-light bg">
-        <a href="index.html" onclick="ScrollTop()"><div class="div-logo">
-          <img src="images/SIMS_VERDE_PASTEL.svg" id="logo" alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
-        </div></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="toggle-navbar">
-          <span class="navbar-toggler-icon"></span>
-        </button> 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar">
-              <a class="nav-link" href="#">Em alta</a>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Baixada Santista
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
-                <a class="dropdown-item" th:href="@{/santos}">Santos</a>
-                <a class="dropdown-item" th:href="@{/praiagrande}">Praia Grande</a>
-                <a class="dropdown-item" th:href="@{/saovicente}">São Vicente</a>
-                <a class="dropdown-item" th:href="@{/guaruja}">Guarujá</a>
-                <a class="dropdown-item" th:href="@{/cubatao}">Cubatão</a>
-                <a class="dropdown-item" th:href="@{/itanhaem}">Itanhaém</a>
-                <a class="dropdown-item" th:href="@{/peruibe}">Peruíbe</a>
-                <a class="dropdown-item" th:href="@{/bertioga}">Bertioga</a>
-                <a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a> 
+  <header class="home-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg">
+      <a onclick="ScrollTop()">
+        <div class="div-logo">
+          <img th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
+            alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="toggle-navbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar">
+          <a class="nav-link" href="#">Em alta</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Baixada Santista
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
+              <a class="dropdown-item" th:href="@{/santos}">Santos</a>
+              <a class="dropdown-item" th:href="@{/praiagrande}">Praia Grande</a>
+              <a class="dropdown-item" th:href="@{/saovicente}">São Vicente</a>
+              <a class="dropdown-item" th:href="@{/guaruja}">Guarujá</a>
+              <a class="dropdown-item" th:href="@{/cubatao}">Cubatão</a>
+              <a class="dropdown-item" th:href="@{/itanhaem}">Itanhaém</a>
+              <a class="dropdown-item" th:href="@{/peruibe}">Peruíbe</a>
+              <a class="dropdown-item" th:href="@{/bertioga}">Bertioga</a>
+              <a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a>
+            </div>
+          </li>
+          <a class="nav-link" th:href="@{/categorias}">Categorias</a>
+          <a class="nav-link" href="#">Eventos</a>
+          <div id="login-icon">
+            <a th:href="@{/login}"><i class="fa-solid fa-user"></i> Login</a>
+          </div>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+  <main>
+    <!--Carrossel-->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="item1">
+          <div class="overlay-image1"></div>
+          <div class="container">
+            <h3>Vacinação</h3>
+            <p>Vacinação em massa: Proteja-se e contribua para o combate à pandemia! Agende sua dose agora e faça parte
+              da solução. Juntos, podemos vencer o vírus!</p>
+          </div>
+        </div>
+        <div class="carousel-item" id="item2">
+          <div class="overlay-image2"></div>
+          <div class="container">
+            <h3>Teste do pezinho</h3>
+            <p>Teste do pezinho: Garanta um futuro saudável para seu bebê! Realize o exame essencial que detecta
+              precocemente doenças e proporciona intervenção rápida. Cuide da saúde do seu pequeno desde os primeiros
+              passos!</p>
+          </div>
+        </div>
+        <div class="carousel-item" id="item3">
+          <div class="overlay-image3"></div>
+          <div class="container">
+            <h3>De olho na saúde</h3>
+            <p>Smartwatch: Sua nova aliada na busca por uma vida saudável! Descubra como essa tecnologia revolucionária
+              monitora sua atividade física, sono e saúde em tempo real. Acompanhe seus objetivos e cuide de si de forma
+              inteligente com o uso do smartwatch.</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- Noticias -->
+    <div class="news-container">
+      <div class="news-content">
+        <div class="news">
+          <div class="news-item">
+            <a href="#">
+              <div class="news-desc">
+                <h1>Nova clínica de serviços especializados inaugura em Santos</h1>
+                <h2>Profissionais experientes e tecnologia avançada prometem oferecer cuidados médicos excepcionais para
+                  a população santista</h2>
+                <p class="date">28 de maio de 2023.</p>
               </div>
-            </li>
-            <a class="nav-link" href="categoria.html">Categorias</a>
-            <a class="nav-link" href="#">Eventos</a>
+              <img src="./images/news-1.jpg" alt="" class="news-img">
+            </a>
+          </div>
+        </div>
+        <hr>
+        <div class="news">
+          <div class="news-item">
+            <a href="#">
+              <div class="news-desc">
+                <h1>Descubra os benefícios da corrida na praia e turbine sua saúde física e mental</h1>
+                <h2>Areia, brisa marinha e superação: a combinação perfeita para melhorar o condicionamento e desfrutar
+                  de uma mente mais tranquila</h2>
+                <p class="date">21 de maio de 2023.</p>
+              </div>
+              <img src="./images/news-2.jpg" alt="" class="news-img">
+            </a>
+          </div>
+        </div>
+        <hr>
+        <div class="news">
+          <div class="news-item">
+            <a href="#">
+              <div class="news-desc">
+                <h1>Campanha de doação de sangue atinge números recordes e salva vidas.</h1>
+                <h2>Comunidade se mobiliza em abril e maio de 2023, respondendo ao apelo por sangue para suprir demandas
+                  hospitalares e contribuir para a saúde de todos</h2>
+                <p class="date">15 de maio de 2023.</p>
+              </div>
+              <img src="./images/news-3.jpg" alt="" class="news-img">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Noticias lateral -->
+      <div class="news-side">
+        <div>
+          <h1>Mais acessadas</h1>
+          <hr>
+          <ul class="most-accessed">
+            <a href="#">
+              <li>Hospital de referência inaugura nova ala para atender demanda crescente na Baixada Santista</li>
+            </a>
+            <hr>
+            <a href="#">
+              <li>Campanha de vacinação contra a gripe alcança grande adesão na Baixada Santista</li>
+            </a>
+            <hr>
+            <a href="#">
+              <li>Novos equipamentos de última geração fortalecem o combate ao câncer na Baixada Santista</li>
+              <hr>
+              <a href="#">
+                <li>Programa de alimentação saudável nas escolas da Baixada Santista incentiva hábitos nutritivos desde
+                  a infância</li>
+              </a>
+              <hr>
+              <a href="#">
+                <li>Iniciativa inovadora promove a prática de atividades físicas ao ar livre nas praias da Baixada
+                  Santista</li>
+              </a>
           </ul>
-          
-          <div class="wrapper">
-            <div class="login">
-              <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
-            </div>
-          <!--
-            <div class="searchBar">
-              <input id="searchQueryInput" type="text" placeholder="O que você procura ?" value="" />
-              <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-                <svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
-                </svg>
-              </button>
-            </div>
-          -->
-          </div>   
         </div>
-      </nav>
-        
-	</header>
-	<main>
-		<!-- <!-- Carrossel
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-              </ol>     
-            <div class="carousel-inner">
-              <div class="carousel-item active" id="item1">
-                <div class="overlay-image1"></div>
-                <div class="container">
-                    <h3>Vacinação</h3>
-                    <p>Vacinação em massa: Proteja-se e contribua para o combate à pandemia! Agende sua dose agora e faça parte da solução. Juntos, podemos vencer o vírus!</p>
-                </div>
-            </div>
-              <div class="carousel-item" id="item2">
-                <div class="overlay-image2"></div>
-                <div class="container">
-                    <h3>Teste do pezinho</h3>
-                    <p>Teste do pezinho: Garanta um futuro saudável para seu bebê! Realize o exame essencial que detecta precocemente doenças e proporciona intervenção rápida. Cuide da saúde do seu pequeno desde os primeiros passos!</p>
-                </div>
-              </div>
-              <div class="carousel-item" id="item3">
-                <div class="overlay-image3"></div>
-                <div class="container">
-                    <h3>De olho na saúde</h3>
-                    <p>Smartwatch: Sua nova aliada na busca por uma vida saudável! Descubra como essa tecnologia revolucionária monitora sua atividade física, sono e saúde em tempo real. Acompanhe seus objetivos e cuide de si de forma inteligente com o uso do smartwatch.</p>
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div> -->
-          <!-- Noticias -->
-          <div class="news-container">
-          <div class="news-content">
-          <div class="news">
-            <div class="news-item">
-              <a href="#">
-                <div class="news-desc">
-                  <h1>Nova clínica de serviços especializados inaugura em Santos</h1>
-                  <h2>Profissionais experientes e tecnologia avançada prometem oferecer cuidados médicos excepcionais para a população santista</h2>
-                  <p class="date">28 de maio de 2023.</p>
-                </div>
-                <img src="./images/news-1.jpg" alt="" class="news-img">
-              </a>
-            </div>
-          </div><hr>
-          <div class="news">
-            <div class="news-item">
-              <a href="#">
-                <div class="news-desc">
-                  <h1>Descubra os benefícios da corrida na praia e turbine sua saúde física e mental</h1>
-                  <h2>Areia, brisa marinha e superação: a combinação perfeita para melhorar o condicionamento e desfrutar de uma mente mais tranquila</h2>
-                  <p class="date">21 de maio de 2023.</p>
-                </div>
-                <img src="./images/news-2.jpg" alt="" class="news-img">
-              </a>
-            </div>
-          </div><hr>
-          <div class="news">
-            <div class="news-item">
-              <a href="#">
-                <div class="news-desc">
-                  <h1>Campanha de doação de sangue atinge números recordes e salva vidas.</h1>
-                  <h2>Comunidade se mobiliza em abril e maio de 2023, respondendo ao apelo por sangue para suprir demandas hospitalares e contribuir para a saúde de todos</h2>
-                  <p class="date">15 de maio de 2023.</p>
-                </div>
-                <img src="./images/news-3.jpg" alt="" class="news-img">
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Noticias lateral -->
-          <div class="news-side">
-              <div>
-                <h1>Mais acessadas</h1><hr>
-                <ul class="most-accessed">
-                  <a href="#"><li>Hospital de referência inaugura nova ala para atender demanda crescente na Baixada Santista</li></a><hr>
-                  <a href="#"><li>Campanha de vacinação contra a gripe alcança grande adesão na Baixada Santista</li></a><hr>
-                  <a href="#"><li>Novos equipamentos de última geração fortalecem o combate ao câncer na Baixada Santista</li><hr>
-                  <a href="#"><li>Programa de alimentação saudável nas escolas da Baixada Santista incentiva hábitos nutritivos desde a infância</li></a><hr>
-                  <a href="#"><li>Iniciativa inovadora promove a prática de atividades físicas ao ar livre nas praias da Baixada Santista</li></a>
-                </ul>
-              </div>
-          </div>
-        </div>
-          <div class="prop"><a href="#"><img src="./images/propaganda.png" alt=""></a></div>
-	</main>
-	<footer>
-        <div class="icons">
-            <a href="https://www.instagram.com/projeto.sims/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-        <div class="infos">
-		    <a href=""><p>Suporte</p></a>
-          
-            <a href=""><p>Termos de Uso</p></a>
-      
-            <a href=""><p>Política de Privacidade</p></a>
-        </div>
-        <div class="sub-footer"><p>Esse é um projeto de trabalho acadêmico de Marketing do curso de SI FATEC Rubens Lara.</p></div>
-	</footer>
-    <script src="./scripts/main.js"></script>
-    <!-- Bootstrap scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="icons">
+      <a href="https://www.instagram.com/projeto.sims/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <div class="infos">
+      <a href="">
+        <p>Suporte</p>
+      </a>
+
+      <a href="">
+        <p>Termos de Uso</p>
+      </a>
+
+      <a href="">
+        <p>Política de Privacidade</p>
+      </a>
+    </div>
+    <div class="sub-footer">
+      <p>Esse é um projeto de trabalho acadêmico do curso de SI FATEC Rubens Lara.</p>
+    </div>
+  </footer>
+  <script th:src="@{./scripts/main.js}"></script>
+  <!-- Bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

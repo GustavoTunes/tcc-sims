@@ -2,6 +2,7 @@ package com.projeto.banco.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projeto.banco.exception.ResourceNotFoundException;
@@ -10,10 +11,11 @@ import com.projeto.banco.repository.UsuarioRepository;
 import com.projeto.banco.service.UsuarioService;
 
 @Service
-public class UsuarioServiceImpl {
+public class UsuarioServiceImpl implements UsuarioService{
 
 	private UsuarioRepository usuarioRepository;
 
+	@Autowired
 	public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
 		super();
 		this.usuarioRepository = usuarioRepository;
@@ -26,6 +28,7 @@ public class UsuarioServiceImpl {
 
 	@Override
 	public List<Usuario> getAllUsuarios() {
+
 		return usuarioRepository.findAll();
 	}
 
@@ -34,30 +37,27 @@ public class UsuarioServiceImpl {
 
 		return usuarioRepository.findById(id).orElseThrow(() -> 
 						new ResourceNotFoundException("Usuario", "Id", id));
-		
 	}
 
 	@Override
 	public Usuario updateUsuario(Usuario usuario, long id) {
 		
-		// we need to check whether employee with given id is exist in DB or not
 		Usuario existingUsuario = usuarioRepository.findById(id).orElseThrow(
 				() -> new ResourceNotFoundException("Usuario", "Id", id)); 
 		
 		existingUsuario.setNomeCompleto(existingUsuario.getNomeCompleto());
-		// save existing employee to DB
+		
 		usuarioRepository.save(existingUsuario);
 		return existingUsuario;
 	}
 	
-/*
+
 	@Override
 	public void deleteUsuario(long id) {
 		
-		// check whether a employee exist in a DB or not
 		usuarioRepository.findById(id).orElseThrow(() -> 
 								new ResourceNotFoundException("Usuario", "Id", id));
 		usuarioRepository.deleteById(id);
-	}*/
+	}
 	
 }

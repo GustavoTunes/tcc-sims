@@ -7,7 +7,7 @@ import org.jsoup.select.Elements;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.projeto.sims.Noticia;
+import com.projeto.noticias.model.Noticia;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,26 +20,6 @@ import java.util.Map;
 
 @Controller
 public class NewsController {
-
-	@GetMapping("/")
-	public String index() {
-		return "index";
-	}
-
-	@GetMapping("/cadastro")
-	public String cadastro() {
-		return "cadastro";
-	}
-
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}
-
-	@GetMapping("/categorias")
-	public String categorias() {
-		return "categoria";
-	}
 
 	@GetMapping("/{cidade}")
 	public String obterNoticias(@PathVariable String cidade, Model model) {
