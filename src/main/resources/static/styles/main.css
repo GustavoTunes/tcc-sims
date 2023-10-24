@@ -514,15 +514,6 @@ input:not(#entrar) {
   max-width: 50px;
   height: auto;
 }
-
-/* PAGINA NOTICIAS */
-
-/* .news {
-  display: flex;
-  margin-left: 2rem;
-  width: 100%;
-} */
-
 .article-container {
   margin-top: 100px;
   margin: 2.5rem 0;
