@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Noticias Baixada Santista</title>
 	<link rel="stylesheet" th:href="@{/styles/main.css}">
-	<!-- <link rel="stylesheet" href="styles/main.css">  -->
 	<link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -70,21 +69,44 @@
 	<h1 class="cidade"> 
 		Notícias de <span th:text="${#strings.capitalize(cidade)}"></span>
 	</h1>
-	<main class="news-container">
-		<div class="news-content">
-			<div class="news-item" th:each="noticia : ${noticiasList}">
+	<main class="article-container">
+		<div class="article-content">
+			<div th:each="noticia : ${noticiasList}" class="article-item">
 				<a th:href="@{${noticia.urlNoticia}}" target="_blank">
-					<div class="news-desc">
+					<img class="article-img" th:src="${noticia.imagem}" alt="${noticia.title}">
+					<div class="article-desc">
+						<p class="article-date" th:text="${noticia.data}"></p>
 						<h2 th:text="${noticia.title}"></h2>
 						<p th:text="${noticia.content}"></p>
-						<p class="date" th:text="${noticia.data}"></p>
 					</div>
-					<img class="news-img" th:src="${noticia.imagem}" alt="${noticia.title}" style="height: 240px;">
 				</a>
 				<hr><br>
 			</div>
 		</div>
 	</main>
+	<footer>
+		<div class="icons">
+		  <a href="https://www.instagram.com/projeto.sims/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+		  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+		  <a href="#"><i class="fa-solid fa-envelope"></i></a>
+		</div>
+		<div class="infos">
+		  <a href="">
+			<p>Suporte</p>
+		  </a>
+	
+		  <a href="">
+			<p>Termos de Uso</p>
+		  </a>
+	
+		  <a href="">
+			<p>Política de Privacidade</p>
+		  </a>
+		</div>
+		<div class="sub-footer">
+		  <p>Esse é um projeto de trabalho acadêmico do curso de SI FATEC Rubens Lara.</p>
+		</div>
+	  </footer>
 	<script src="./scripts/main.js"></script>
 	<!-- Bootstrap scripts -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

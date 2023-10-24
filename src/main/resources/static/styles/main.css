@@ -120,7 +120,7 @@ footer {
 }
 
 #login-icon {
-  margin: 8px 5% 0 auto;
+  margin: 6px 5% 0 auto;
 }
 
 /* ESPAÇAMENTO ENTRE ITEMS DO NAVBAR */
@@ -261,7 +261,7 @@ footer p {
   margin-bottom: 0.2rem;
 }
 
-/* NOTICIAS */
+/* NOTICIAS HOMEPAGE */
 
 .news {
   display: flex;
@@ -276,6 +276,9 @@ footer p {
   margin: 0 12px;
 }
 
+.news-img, .news-desc {
+  flex: 1;
+}
 
 .news-desc {
   width: 460px;
@@ -288,49 +291,47 @@ footer p {
 }
 
 
-.news-container {
-  margin-top: 100px;
+.news-container{
+  padding: 20px;
   margin: 2.5rem 0;
   width: 100%;
 }
 
-.news-container a {
+.news-container a{
   color: #012030;
 }
 
-
-.news-content {
+.news-container a:hover{
+  text-decoration: none;
+}
+.news-content{
   float: left;
   padding-bottom: 1.5rem;
-  display: table;
-  padding: 20px;
+  min-width: 50%;
 }
 
 .news-item {
   width: 100%;
-  height: 280px;
 }
 
-.news-desc h1 {
+.news-desc h1{
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-.news-desc h2 {
+.news-desc h2{
   font-size: 1rem;
   margin-bottom: 5.35rem;
 }
 
-.news-desc .date {
-  text-decoration: none;
-  color: black;
+.new-desc p{
+  position: absolute;
+  bottom: 0;
 }
 
-/* CIDADE */
-
-.cidade{
-  align-self: center;
-  color: #002639;
+.news-desc .date{
+  text-decoration: none;
+  color: black;
 }
 
 /* MAIS ACESSADAS */
@@ -419,6 +420,7 @@ footer p {
     padding-right: 2rem;
     width: 100%;
     border: 0.2rem solid #012030;
+    margin-bottom: 15px;
   }
 }
 
@@ -511,4 +513,61 @@ input:not(#entrar) {
 #login-logo {
   max-width: 50px;
   height: auto;
+}
+.article-container {
+  margin-top: 100px;
+  margin: 2.5rem 0;
+  width: 100%;
+  display: flex;
+}
+
+.article-container a {
+  color: #012030;
+  text-decoration: none;
+}
+
+.article-container a:hover {
+  text-decoration: none;
+}
+
+.article-content {
+  padding-bottom: 1.5rem;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Espaçamento entre as notícias */
+}
+
+.article-item {
+  width: calc(30% - 15px); /* A largura das notícias, considerando a margem */
+  margin-bottom: 20px; /* Espaço entre as notícias */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.article-desc {
+  width: 100%;
+}
+
+.article-img {
+  width: 100%;
+  max-width: 100%;
+  height: 240px;
+}
+
+.cidade{
+  font-size: 3rem;
+  align-self: center;
+  color: #002639;
+}
+
+.article-desc h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.article-desc .date {
+  text-decoration: none;
+  color: black;
 }
