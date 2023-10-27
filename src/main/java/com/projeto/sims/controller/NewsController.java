@@ -56,8 +56,11 @@ public class NewsController {
 		model.addAttribute("news", "Cidade não reconhecida: " + cidade);
 		return "erro";
 	}
-
+	
 	// associando e armazenando urls específicas para cada cidade
+
+
+
 
 	private static final Map<String, String> siteCidade = new HashMap<>();
 	private static final Map<String, String> seletorCidade = new HashMap<>();
