@@ -41,6 +41,11 @@ public class NewsController {
 		return "categoria";
 	}
 
+	@GetMapping("/perfil")
+	public String perfil() {
+		return "perfil";
+	}
+
 	@GetMapping("/{cidade}")
 	public String obterNoticias(@PathVariable String cidade, Model model) {
 		// Verifique se a cidade é reconhecida
