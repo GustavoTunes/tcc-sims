@@ -505,6 +505,15 @@ input:not(#entrar) {
   color: black;
 }
 
+.article-item input[type=checkbox]{
+  display: none;
+}
+
+.article-item input[type=checkbox]:checked + #star-label {
+  color: gold;
+  transition: color 0.3s ease-in-out;
+}
+
 /* PERFIL */
 
 .perfil {
