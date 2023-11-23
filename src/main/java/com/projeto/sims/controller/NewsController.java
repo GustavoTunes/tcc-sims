@@ -51,6 +51,11 @@ public class NewsController {
 		return "indexLogoff";
 	}
 
+	@GetMapping("/erro")
+	public String erro() {
+	return "erro";
+	}
+
 	@GetMapping("/{cidade}")
 	public String obterNoticias(@PathVariable String cidade, Model model) {
 		// Verifique se a cidade é reconhecida

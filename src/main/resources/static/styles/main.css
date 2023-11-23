@@ -113,14 +113,18 @@ footer {
   float: right;
   width: 50%;
   margin-right: 15%;
+  margin-left: 110px;
 }
 
 #navbarDropdown {
   margin-right: 40px;
+  font-size: 1.3rem;
+  margin-left: 100px;
 }
 
 #login-icon {
-  margin: 6px 5% 0 auto;
+  margin: 8px 5% 0 auto;
+  font-size: 1.2rem;
 }
 
 /* ESPAÇAMENTO ENTRE ITEMS DO NAVBAR */
@@ -384,7 +388,7 @@ footer p {
   padding: 2rem;
   border-radius: 5px;
   border-radius: 30px;
-  margin-bottom: 75px;
+  margin-bottom: 115px;
 }
 
 .input-group {
@@ -428,7 +432,7 @@ input:not(#entrar) {
   top: 0;
   z-index: 16;
   margin-top: -100px;
-  margin-bottom: 100px;
+  margin-bottom: 125px;
 }
 
 .cadastro-header {
@@ -438,6 +442,7 @@ input:not(#entrar) {
   position: sticky;
   top: 0;
   z-index: 16;
+  margin-bottom: 125px;
 }
 
 #login-logo {
@@ -615,6 +620,23 @@ input:not(#entrar) {
   background-color: #ddd;
 }
 
+/* PAGINA ERRO 404 */
+
+.container404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.mensagem404 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.mensagem404 a{
+  font-size: 2.5rem;
+}
 
 /* MANTER NO FINAL DO ARQUIVO */
 /* MEDIA QUERY */
@@ -624,7 +646,6 @@ input:not(#entrar) {
     margin-left: 2rem;
     padding-top: 1.5rem;
   }
-
   /* NOTICIAS */
   .news {
     display: flex;
@@ -739,6 +760,20 @@ input:not(#entrar) {
   #menuImagem {
     left: 50px;
     right: auto;
+  }
+
+  /* ERRO 404 */
+
+  .container404 {
+    height: auto;
+  }
+
+  .mensagem404 {
+    font-size: 1.5rem;
+  }
+
+  .mensagem404 a {
+    font-size: 2rem;
   }
 }
 
