@@ -38,7 +38,6 @@ footer {
   color: #fff;
   padding-top: 0.5rem;
   text-align: center;
-  position: static;
   bottom: 0;
   width: 100%;
 }
@@ -62,7 +61,7 @@ footer {
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
-  padding-left: 35%;
+  padding-left: 33%;
 }
 
 .navbar ul {
@@ -407,7 +406,7 @@ input:not(#entrar) {
 }
 
 #entrar,
-#avancar {
+#avancar:not(.cadastroTermos-container #avancar) {
   width: 80%;
   margin-bottom: 2rem;
   margin-top: 1.5rem;
@@ -417,7 +416,7 @@ input:not(#entrar) {
 }
 
 #criar-conta,
-#voltar {
+#voltar:not(.cadastroTermos-container #voltar) {
   width: 40%;
   align-self: center;
   margin-left: 0.2rem;
@@ -452,6 +451,43 @@ input:not(#entrar) {
   height: auto;
 }
 
+.cadastroTermos-container {
+  width: 1050px;
+  max-width: 100%;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 5px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  margin-top: 35px;
+
+}
+.cadastroTermos-container p, .cadastroTermos-container h4{
+  text-align: left;
+}
+
+.cadastroTermos-container h1{
+  margin-bottom: 25px;
+}
+
+.cadastroTermos-container #avancar{
+  width: 65%;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+}
+
+.cadastroTermos-container #voltar{
+  width: 45%;
+  align-self: center;
+  margin-left: 0.2rem;
+}
+
+.cadastroTermos-container #avancar, 
+.cadastroTermos-container #voltar{
+  background-color: #012030;
+  border-radius: 30px;
+  border: 0;
+}
 /* PAGINA NOTICIAS */
 
 .article-container {
@@ -640,6 +676,27 @@ input:not(#entrar) {
   font-size: 2.5rem;
 }
 
+/* TERMOS DE USO */
+
+.termos-container h1{
+  margin-bottom: 25px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.termos-container p, .termos-container h4{
+  text-align: justify;
+}
+
+.termos-container hr, .termos-container p, .termos-container h4, .termos-container h3{
+  margin: 0 25px 35px 25px;
+}
+
+/* SOBRE NOS */
+
+.sobre-nos{
+  font-size: 18px;
+}
 /* MANTER NO FINAL DO ARQUIVO */
 /* MEDIA QUERY */
 @media (max-width: 800px) {
