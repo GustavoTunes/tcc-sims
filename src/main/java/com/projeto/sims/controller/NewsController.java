@@ -56,6 +56,26 @@ public class NewsController {
 	return "erro";
 	}
 
+	@GetMapping("/termos")
+	public String termos() {
+	return "termos";
+	}
+
+	@GetMapping("/cadastroTermos")
+	public String cadastroTermos() {
+	return "cadastroTermos";
+	}
+
+	@GetMapping("/privacidade")
+	public String privacidade() {
+	return "privacidade";
+	}
+
+	@GetMapping("/sobre")
+	public String sobre() {
+	return "sobre";
+	}
+
 	@GetMapping("/{cidade}")
 	public String obterNoticias(@PathVariable String cidade, Model model) {
 		// Verifique se a cidade é reconhecida

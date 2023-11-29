@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro do projeto SIMS</title>
+    <title>Termos de Uso do Cadastro</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -23,32 +23,23 @@
             </a>
         </nav>
     </header>
-    <main class="cadastro-container">
-        <h1>Cadastro</h1>
-        <form action="/cadastroTermos" class="login">
-            <div class="input-group">
-                <label for="nome">Nome Completo:</label>
-                <input type="text" id="nome" name="nome" required>
-
-                <label for="usuario">Nome de Usuário</label>
-                <input type="text" id="usuario" name="usuario" maxlength="20" required>
-
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="email" minlength="6" required>
-
-                <label for="confirmar_senha">Confirmar Senha:</label>
-                <input type="password" id="confirmar_senha" name="confirmar_senha">
-
-                <label for="data">Data de nascimento:</label>
-                <input type="date" id="data" name="data" min="1950-01-01" max="2007-01-01" required>
-            </div>
-            <input type="submit" value="Avançar" class="btn btn-primary" id="avancar">
-        </form>
+    <main class="cadastroTermos-container">
+        <h1>Termos de Uso</h1>
+        <h4>1. Cadastro e Informações Pessoais:</h4>
+        <p>1.1 Para acessar determinadas funcionalidades do site, será necessário criar uma conta. Ao se cadastrar, você concorda em fornecer informações completas e atualizadas, incluindo seu nome, endereço de e-mail e data de nascimento.</p>
+        <p>1.2 Você é responsável por manter a confidencialidade de sua senha e conta. Todas as atividades realizadas através de sua conta são de sua responsabilidade.</p><hr>
+        <h4>2. Uso Aceitável:</h4>
+        <p>2.1 Você concorda em utilizar o site de acordo com todas as leis aplicáveis e estes termos de uso.</p><hr>
+        <h4>3. Filtragem de Notícias:</h4>
+        <p>3.1 O Portal de Notícias da Baixada Santista por Cidade utiliza tecnologias de filtragem para apresentar notícias específicas por cidade. No entanto, não possuímos propriedade intelectual sob as notícias filtradas e não garantimos a precisão ou atualidade do conteúdo exibido.</p><hr>
+        <h4>4. Privacidade:</h4>
+        <p>4.1 Ao utilizar o site, você concorda com nossa Política de Privacidade, disponível separadamente, que detalha como suas informações são coletadas, utilizadas e protegidas.</p><hr>
+        <h4>5. Modificações nos Termos:</h4>
+        <p>5.1 Reservamo-nos o direito de modificar estes termos de uso a qualquer momento. Alterações significativas serão comunicadas por meio do site ou por e-mail.</p>
+        <button type="button" class="btn btn-primary" id="avancar"
+            th:onclick="window.location.href = '/'">Avançar</button>
         <button type="button" class="btn btn-primary" id="voltar"
-            th:onclick="window.location.href = 'login'">Voltar</button>
+            th:onclick="window.location.href = 'cadastro'">Voltar</button>
     </main>
 
     <script th:src="@{./scripts/main.js}"></script>
