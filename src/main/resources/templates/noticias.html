@@ -64,9 +64,44 @@
 		</nav>
 
 	</header><br>
-	<h1 class="cidade">
-		Notícias de <span th:text="${#strings.capitalize(cidade)}"></span>
+	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Cubatao'}"> 
+     
+		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Cubatao', 'Cubatão')}"></span>
 	</h1>
+     
+		<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Guaruja'}">
+			
+		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Guaruja', 'Guarujá')}"></span>
+	</h1>
+	
+	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Itanhaem'}"> 
+     
+		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Itanhaem', 'Itanhaém')}"></span>
+	</h1>
+	
+	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Mongagua'}"> 
+     
+		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Mongagua', 'Mongaguá')}"></span>
+	</h1>
+	
+	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Praiagrande'}"> 
+     
+		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Praiagrande', 'Praia Grande')}"></span>
+	</h1>
+	
+	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Peruibe'}"> 
+     
+		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Peruibe', 'Peruíbe')}"></span>
+	</h1>
+	
+	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Saovicente'}"> 
+     
+		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Saovicente', 'São Vicente')}"></span>
+	</h1>
+	
+	<h1 class="cidade" th:unless="${#strings.capitalize(cidade) eq 'Cubatao' or #strings.capitalize(cidade) eq 'Guaruja' or #strings.capitalize(cidade) eq 'Itanhaem' or #strings.capitalize(cidade) eq 'Mongagua' or #strings.capitalize(cidade) eq 'Praiagrande' or #strings.capitalize(cidade) eq 'Peruibe' or #strings.capitalize(cidade) eq 'Saovicente'}"> 
+    Notícias de <span th:text="${#strings.capitalize(cidade)}"></span>
+</h1>
 	<main class="article-container">
 		<div class="article-content">
 			<div th:each="noticia : ${noticiasList}" class="article-item">

@@ -1,6 +1,7 @@
 package com.projeto.banco.model;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -80,4 +81,12 @@ public class Usuario {
 		this.dataNascimento = dataNascimento;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nomeCompleto=" + nomeCompleto + ", nomeUsuario=" + nomeUsuario + ", email="
+				+ email + ", senha=" + senha + ", dataNascimento=" + dataNascimento + "]";
+	}
+
+	
+	
 }

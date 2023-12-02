@@ -1,4 +1,4 @@
-package com.projeto.sims;
+package com.projeto.noticias.model;
 
 public class Noticia {
 	private String imagem;
