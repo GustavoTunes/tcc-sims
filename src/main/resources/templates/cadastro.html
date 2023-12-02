@@ -26,7 +26,9 @@
     
     <main class="cadastro-container">
         <h1>Cadastro</h1>
+
         <form action="#" th:action="@{/cadastrar}" method="post" th:object="${usuario}" class="login">
+
             <div class="input-group">
                 <label for="nome">Nome Completo:</label>
                 <input th:field="*{nomeCompleto}" type="text" id="nome" name="nome" required>
@@ -38,13 +40,13 @@
                 <input th:field="*{email}" type="email" id="email" name="email" required>
 
                 <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" minlength="6" required>
+                <input th:field="*{senha}" type="password" id="senha" name="senha" minlength="6" required>
 
                 <label for="confirmar_senha">Confirmar Senha:</label>
                 <input type="password" id="confirmar_senha" name="confirmar_senha">
-                <h1>Olá <span th:text="${nomeDoAtributo}"></span></h1>
+               
                 <label for="data">Data de nascimento:</label>
-                <input th:field="*{dataNascimento}" type="date" id="data" name="data" min="1950-01-01" max="2010-01-01" required>
+                <input th:field="*{dataNascimento}" type="date" id="data" name="data" min="1950-01-01" max="2007-01-01" required>
             </div>
             <input type="submit" value="Avançar" class="btn btn-primary" id="avancar">
         </form>

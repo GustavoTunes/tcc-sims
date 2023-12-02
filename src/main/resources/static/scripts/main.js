@@ -18,3 +18,24 @@ if(password.value != confirm_password.value) {
 
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
+
+//BOTAO FOTO DE PERFIL
+function toggleDropdown() {
+  var imagemOptions = document.getElementById("menuImagem");
+  imagemOptions.style.display = (imagemOptions.style.display === "block") ? "none" : "block";
+}
+
+function removerFoto() {
+  alert("Foto removida!");
+}
+
+function adicionarFoto() {
+  alert("Foto adiconada!");
+}
+
+window.onclick = function(event) {
+  var dropdown = document.getElementById("menuImagem");
+  if (event.target !== dropdown && !dropdown.contains(event.target)) {
+    dropdown.style.display = "none";
+  }
+};
