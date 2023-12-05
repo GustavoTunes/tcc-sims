@@ -1,0 +1,14 @@
+services:
+
+  mysql:
+    image: mysql
+    config:
+      database: "db_sims"
+      username: "root"
+      password: "1234"
+      port: 3306
+    env:
+      MYSQL_DATABASE: "db_sims"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "1234"
+      MYSQL_ROOT_PASSWORD: "1234"
