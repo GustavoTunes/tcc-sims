@@ -5,7 +5,34 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Noticias Baixada Santista</title>
+
+	<th:block th:switch="${#strings.capitalize(cidade)}">
+		<th:block th:case="'Praiagrande'">
+			<title th:text="'Notícias de ' + ${'Praia Grande'}"></title>
+		</th:block>
+		<th:block th:case="'Saovicente'">
+			<title th:text="'Notícias de ' + ${'São Vicente'}"></title>
+		</th:block>
+		<th:block th:case="'Cubatao'">
+			<title th:text="'Notícias de ' + ${'Cubatão'}"></title>
+		</th:block>
+		<th:block th:case="'Guaruja'">
+			<title th:text="'Notícias de ' + ${'Guarujá'}"></title>
+		</th:block>
+		<th:block th:case="'Itanhaem'">
+			<title th:text="'Notícias de ' + ${'Itanhaém'}"></title>
+		</th:block>
+		<th:block th:case="'Peruibe'">
+			<title th:text="'Notícias de ' + ${'Peruíbe'}"></title>
+		</th:block>
+		<th:block th:case="'Mongagua'">
+			<title th:text="'Notícias de ' + ${'Mongaguá'}"></title>
+		</th:block>
+		<th:block th:case="*">
+			<title th:text="'Notícias de ' + ${#strings.capitalize(cidade)}"></title>
+		</th:block>
+	</th:block>
+	<link rel="icon" th:href="@{/images/SIMS_CORACAO_VERDE.png}" type="image/x-icon">
 	<link rel="stylesheet" th:href="@{/styles/main.css}">
 	<link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -28,7 +55,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg">
 			<a th:href="@{/}" onclick="ScrollTop()">
 				<div class="div-logo">
-					<img th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
+					<img loading="lazy" th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
 						alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
 				</div>
 			</a>
@@ -57,56 +84,30 @@
 						</div>
 					</li>
 					<div id="login-icon">
-						<a th:href="@{/login}"><i class="fa-solid fa-user"></i> Login</a>
-					</div>
+            <a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i>  Meu Perfil   </a>
+            <a th:href="@{/logout}" th:if="${usuarioLogado}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff"></i>  Sair</a>
+            <a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
+          </div>
 				</ul>
 			</div>
 		</nav>
 
 	</header><br>
-	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Cubatao'}"> 
-     
-		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Cubatao', 'Cubatão')}"></span>
+	<h1 class="cidade" th:switch="${#strings.capitalize(cidade)}">
+		<h1 class="cidade" th:case="'Cubatao'">Notícias de <span th:text="${'Cubatão'}"></span></h1>
+		<h1 class="cidade" th:case="'Guaruja'">Notícias de <span th:text="${'Guarujá'}"></span></h1>
+		<h1 class="cidade" th:case="'Itanhaem'">Notícias de <span th:text="${'Itanhaém'}"></span></h1>
+		<h1 class="cidade" th:case="'Mongagua'">Notícias de <span th:text="${'Mongaguá'}"></span></h1>
+		<h1 class="cidade" th:case="'Praiagrande'">Notícias de <span th:text="${'Praia Grande'}"></span></h1>
+		<h1 class="cidade" th:case="'Peruibe'">Notícias de <span th:text="${'Peruíbe'}"></span></h1>
+		<h1 class="cidade" th:case="'Saovicente'">Notícias de <span th:text="${'São Vicente'}"></span></h1>
+		<h1 class="cidade" th:case="*">Notícias de <span th:text="${#strings.capitalize(cidade)}"></span></h1>
 	</h1>
-     
-		<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Guaruja'}">
-			
-		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Guaruja', 'Guarujá')}"></span>
-	</h1>
-	
-	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Itanhaem'}"> 
-     
-		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Itanhaem', 'Itanhaém')}"></span>
-	</h1>
-	
-	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Mongagua'}"> 
-     
-		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Mongagua', 'Mongaguá')}"></span>
-	</h1>
-	
-	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Praiagrande'}"> 
-     
-		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Praiagrande', 'Praia Grande')}"></span>
-	</h1>
-	
-	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Peruibe'}"> 
-     
-		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Peruibe', 'Peruíbe')}"></span>
-	</h1>
-	
-	<h1 class="cidade" th:if="${#strings.capitalize(cidade) eq 'Saovicente'}"> 
-     
-		Notícias de <span th:text="${#strings.capitalize(cidade).replace('Saovicente', 'São Vicente')}"></span>
-	</h1>
-	
-	<h1 class="cidade" th:unless="${#strings.capitalize(cidade) eq 'Cubatao' or #strings.capitalize(cidade) eq 'Guaruja' or #strings.capitalize(cidade) eq 'Itanhaem' or #strings.capitalize(cidade) eq 'Mongagua' or #strings.capitalize(cidade) eq 'Praiagrande' or #strings.capitalize(cidade) eq 'Peruibe' or #strings.capitalize(cidade) eq 'Saovicente'}"> 
-    Notícias de <span th:text="${#strings.capitalize(cidade)}"></span>
-</h1>
 	<main class="article-container">
 		<div class="article-content">
 			<div th:each="noticia : ${noticiasList}" class="article-item">
 				<a th:href="@{${noticia.urlNoticia}}" target="_blank">
-					<img class="article-img" th:src="${noticia.imagem}" alt="${noticia.title}">
+					<img class="article-img" loading="lazy" th:src="${noticia.imagem}" alt="${noticia.title}">
 					<div class="article-desc">
 						<p class="article-date" th:text="${noticia.data}"></p>
 						<h2 th:text="${noticia.title}"></h2>
@@ -114,7 +115,10 @@
 					</div>
 				</a>
 				<label class="favorite-button">
-					<input type="checkbox" name="favorito" id="favorito">
+					<input type="checkbox" name="favorito" class="favorito-checkbox"
+						th:data-noticia-imagem="${noticia.imagem}" th:data-noticia-title="${noticia.title}"
+						th:data-noticia-data="${noticia.data}" th:data-noticia-content="${noticia.content}"
+						th:data-noticia-url="${noticia.urlNoticia}" data-toggle="modal" data-target="#favoritoModal">
 					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
 						class="bi bi-star-fill" viewBox="0 0 16 16" id="star-label">
 						<path
@@ -122,15 +126,40 @@
 					</svg>
 				</label>
 				<hr><br>
+
 			</div>
-		</div>
+			<div class="modal fade" id="favoritoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Erro ao Salvar Notícia</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<!-- Conteúdo da Modal -->
+							<h3> Você não está logado!</h3>
+							<p> Para salvar notícias você precisa entrar em sua conta</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary"
+								th:onclick="window.location.href='/login'">Entrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
 	</main>
 	<footer>
-        <div class="icons">
-            <a href="https://www.instagram.com/projeto.sims/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/projeto-sims-5610002a1/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=appsims.suporte@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-        </div>
+		<div class="icons">
+			<a href="https://www.instagram.com/projeto.sims/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+			<a href="https://www.linkedin.com/in/projeto-sims-5610002a1/" target="_blank"><i
+					class="fa-brands fa-linkedin-in"></i></a>
+			<a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=appsims.suporte@gmail.com" target="_blank"><i
+					class="fa-solid fa-envelope"></i></a>
+		</div>
 		<div class="infos">
 			<a th:href="@{/sobre}">
 				<p>Sobre nós</p>
@@ -150,15 +179,45 @@
 	</footer>
 	<script src="./scripts/main.js"></script>
 	<!-- Bootstrap scripts -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
 		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
+
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		$(document).ready(function () {
+			$('.favorito-checkbox').change(function () {
+				debugger;
+				let noticiaImagem = $(this).data('noticia-imagem');
+				let noticiaTitulo = $(this).data('noticia-title');
+				let noticiaData = $(this).data('noticia-data');
+				let noticiaContent = $(this).data('noticia-content');
+				let noticiaUrlNoticia = $(this).data('noticia-url');
+				let isChecked = $(this).prop('checked');
+
+				$.post({
+					url: '/alterar-noticia',
+					contentType: 'application/json',
+					data: JSON.stringify({
+						imagem: noticiaImagem,
+						title: noticiaTitulo,
+						data: noticiaData,
+						content: noticiaContent,
+						urlNoticia: noticiaUrlNoticia,
+						checkBoxAtivo: isChecked
+					}),
+					error: function (error) {
+						console.error('Erro ao enviar dados:', error);
+					}
+				});
+			});
+		});
+		/*]]>*/
+	</script>
 </body>
 
 </html>

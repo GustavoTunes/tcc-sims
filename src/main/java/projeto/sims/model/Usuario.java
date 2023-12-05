@@ -1,148 +1,117 @@
 package projeto.sims.model;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.Collection;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @SuppressWarnings("serial")
-@Table(name = "usuario")
+@Table(name = "usuarios")
 @Entity(name = "Usuario")
-public class Usuario implements UserDetails, Serializable{
+public class Usuario implements Serializable {
 
-    @Id 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
+
     @Column(name = "nome_completo", nullable = false)
-	private String nomeCompleto;
-	
-	@Column(name = "nome_usuario", nullable = false)
-	private String nomeUsuario;
-	
-	@Column(name = "email", nullable = false, unique = true)
-	private String email;
-	
-	@Column(name = "senha", nullable = false)
-	private String senha;
-	
-	@Column(name = "data_nascimento", nullable = false)
-	private Date dataNascimento;
+    private String nomeCompleto;
 
-	public Usuario(String nomeCompleto, String nomeUsuario, String email, Date dataNascimento, String senha) {
-		super();
-		this.nomeCompleto = nomeCompleto;
-		this.nomeUsuario = nomeUsuario;
-		this.email = email;
-		this.dataNascimento = dataNascimento;
-		this.senha = senha;
-	}
+    @Column(name = "nome_usuario", nullable = false)
+    private String nomeUsuario;
 
-	public Usuario() {
-	}
-	
-	public Usuario(String nomeCompleto, String nomeUsuario, String email, String senha, Date dataNascimento) {
-		super();
-		this.nomeCompleto = nomeCompleto;
-		this.nomeUsuario = nomeUsuario;
-		this.email = email;
-		this.senha = senha;
-		this.dataNascimento = dataNascimento;
-	}
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
+    @Column(name = "senha", nullable = false)
+    private String senha;
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
-	}
+    @Column(name = "data_nascimento", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
 
-	public String getNomeUsuario() {
-		return nomeUsuario;
-	}
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Set<UsuarioNoticia> usuarioNoticias = new HashSet<>();
 
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
-	}
+    public Usuario(String nomeCompleto, String nomeUsuario, String email, Date dataNascimento, String senha) {
+        super();
+        this.nomeCompleto = nomeCompleto;
+        this.nomeUsuario = nomeUsuario;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+        this.senha = senha;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public Usuario() {
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public Usuario(String nomeCompleto, String nomeUsuario, String email, String senha, Date dataNascimento) {
+        super();
+        this.nomeCompleto = nomeCompleto;
+        this.nomeUsuario = nomeUsuario;
+        this.email = email;
+        this.senha = senha;
+        this.dataNascimento = dataNascimento;
+    }
 
-	public Date getDataNascimento() {
-		return dataNascimento;
-	}
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
 
-	public String getSenha() {
-		return senha;
-	}
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	
-	public Long getId() {
-		return id;
-	}
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-	    // Retorna uma autoridade comum para todos os usuários
-	    return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	@Override
-	public String getPassword() {
-		return senha;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@Override
-	public String getUsername() {
-		return email;
-	}
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
 
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    public void setDataNascimento(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            this.dataNascimento = (date != null) ? sdf.parse(sdf.format(date)) : null;
+        } catch (ParseException e) {
+            throw new IllegalArgumentException("Formato de data inválido para dataNascimento", e);
+        }
+    }
 
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    public String getSenha() {
+        return senha;
+    }
 
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-       
+    public Long getId() {
+        return id;
+    }
+
+    public Set<UsuarioNoticia> getUsuarioNoticias() {
+        return usuarioNoticias;
+    }
+
+    public void setUsuarioNoticias(Set<UsuarioNoticia> usuarioNoticias) {
+        this.usuarioNoticias = usuarioNoticias;
+    }
 }

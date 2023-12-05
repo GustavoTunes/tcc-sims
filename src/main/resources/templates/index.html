@@ -54,7 +54,9 @@
             </div>
           </li>
           <div id="login-icon">
-            <a th:href="@{/login}"><i class="fa-solid fa-user"></i> Login</a>
+            <a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i>  Meu Perfil   </a>
+            <a th:href="@{/logout}" th:if="${usuarioLogado}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff"></i>  Sair</a>
+            <a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
           </div>
         </ul>
       </div>

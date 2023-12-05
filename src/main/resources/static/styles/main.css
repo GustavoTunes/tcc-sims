@@ -842,21 +842,10 @@ input:not(#entrar) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 20px;
   }
 
   .usuario {
     flex-direction: column;
-  }
-
-  .mudarPerfil {
-    max-width: none;
-    margin: 40px 0;
-  }
-
-  .mudarPerfil:not(label) {
-    max-width: none;
-    margin: 40px 0;
   }
 
   #botaoAtualizar {
@@ -865,22 +854,6 @@ input:not(#entrar) {
     width: auto;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .containerImagem {
-    margin: 25px auto 35px auto;
-    order: -1;
-  }
-
-  .trocarImagem {
-    right: auto;
-    right: 0;
-    margin: 0 15px 0 15px;
-  }
-
-  #menuImagem {
-    left: 50px;
-    right: auto;
   }
 
   /* ERRO 404 */
@@ -896,4 +869,38 @@ input:not(#entrar) {
   .mensagem404 a {
     font-size: 2rem;
   }
+  
+ /* LISTA DE NOTICIAS SALVAS */
+/* Adicione este trecho no seu CSS existente ou em um novo arquivo de estilos */
+.card-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 20px;
+    color: black !important; /* Adicione esta linha para definir a cor do texto para preto */
+}
+
+
+.card-title, .card-text {
+    color: black; /* Adicione esta linha para definir a cor do texto para preto */
+}
+
+.btn-primary {
+    color: black; /* Adicione esta linha para definir a cor do texto do botão para preto */
+}
+
+
+
 }

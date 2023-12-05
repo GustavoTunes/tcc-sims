@@ -6,6 +6,7 @@ public class NoticiaDTO {
 	private String data;
 	private String content;
 	private String urlNoticia;
+	private Boolean checkBoxAtivo;
 
 	// Construtor
 	public NoticiaDTO(String imagem, String title, String data, String content, String urlNoticia) {
@@ -15,6 +16,8 @@ public class NoticiaDTO {
 		this.content = content;
 		this.urlNoticia = urlNoticia;
 	}
+
+
 
 	public String getUrlNoticia() {
 		return urlNoticia;
@@ -56,4 +59,11 @@ public class NoticiaDTO {
 		this.content = content;
 	}
 
+	public Boolean getCheckBoxAtivo() {
+		return checkBoxAtivo;
+	}
+
+	public void setCheckBoxAtivo(Boolean checkBoxAtivo) {
+		this.checkBoxAtivo = checkBoxAtivo;
+	}
 }

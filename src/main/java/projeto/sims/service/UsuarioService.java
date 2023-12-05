@@ -5,7 +5,12 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
+import projeto.sims.model.Noticia;
 import projeto.sims.model.Usuario;
+import projeto.sims.model.UsuarioNoticia;
+import projeto.sims.repository.NoticiaRepository;
+import projeto.sims.repository.UsuarioNoticiaRepository;
 import projeto.sims.repository.UsuarioRepository;
 
 @Service
@@ -22,16 +27,24 @@ public class UsuarioService {
 	        return usuarioRepository.findAll();
 	    }
 
-	    public Optional<Usuario> buscarUsuarioPorId(Long id) {
-	        return usuarioRepository.findById(id);
-	    }
+	public Optional<Usuario> buscarUsuarioPorId(Long id) {
+		return usuarioRepository.findById(id);
+	}
 
-	    public Usuario salvarUsuario(Usuario usuario) {
-	        return usuarioRepository.save(usuario);
-	    }
+	public void salvarUsuario(Usuario usuario) {
+		usuarioRepository.save(usuario);
+	}
 
-	    public void deletarUsuario(Long id) {
+	public void deletarUsuario(Long id) {
 	        usuarioRepository.deleteById(id);
 	    }
+
+	public Optional<Usuario> buscarUsuarioPorEmailESenha(String email, String senha) {
+		return usuarioRepository.findByEmailAndSenha(email, senha);
+	}
+
+	public Usuario buscarPorEmail(String email) {
+		return usuarioRepository.findByEmail(email);
+	}
 	
 }

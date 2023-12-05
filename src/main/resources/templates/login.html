@@ -27,7 +27,7 @@
 
     <main class="login-container">
         <h1>Faça login no SIMS</h1>
-         <form action="#" th:action="@{/entrar}" method="post" th:object="${usuario}">
+         <form action="#" th:action="@{/home}" method="post" th:object="${usuario}">
             <div class="input-group">
                 <label for="email">Endereço de email:</label>
                 <input type="email" id="email" name="email" required>
@@ -37,8 +37,6 @@
                 <input type="password" id="senha" name="senha" required>
             </div>
             <input type="submit" value="Entrar" class="btn btn-primary" id="entrar">
-             <p th:text="${usuarioLogado} ? 'Usuário Logado' : 'Usuário não Logado'"></p>
-             <p th:text="${nome}"></p>
         </form>
 
         <button class="btn btn-primary" id="criar-conta" th:onclick="window.location.href = '/cadastro'">Criar

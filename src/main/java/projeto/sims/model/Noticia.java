@@ -2,6 +2,9 @@ package projeto.sims.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @SuppressWarnings("serial")
 @Table(name = "noticias")
 @Entity(name = "noticia")
@@ -15,6 +18,8 @@ public class Noticia {
     private String data;
     private String content;
     private String urlNoticia;
+    @OneToMany(mappedBy = "noticia", cascade = CascadeType.ALL)
+    private Set<UsuarioNoticia> usuarioNoticias = new HashSet<>();
 
     public Noticia(String imagem, String title, String data, String content, String urlNoticia) {
         this.imagem = imagem;
@@ -74,5 +79,13 @@ public class Noticia {
 
     public void setUrlNoticia(String urlNoticia) {
         this.urlNoticia = urlNoticia;
+    }
+
+    public Set<UsuarioNoticia> getUsuarioNoticias() {
+        return usuarioNoticias;
+    }
+
+    public void setUsuarioNoticias(Set<UsuarioNoticia> usuarioNoticias) {
+        this.usuarioNoticias = usuarioNoticias;
     }
 }

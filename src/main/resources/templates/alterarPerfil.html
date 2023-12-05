@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre nós</title>
+    <title>Perfil</title>
     <link rel="stylesheet" th:href="@{/styles/main.css}">
     <link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -14,17 +14,19 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-194JYMPFEE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'G-194JYMPFEE');
     </script>
 </head>
 
-<body>
+<body style="background-color: #f5f5f5;">
     <header class="home-header">
         <nav class="navbar navbar-expand-lg navbar-light bg">
-            <a th:href="@{/}">
+            <a th:href="@{/}" onclick="ScrollTop()">
                 <div class="div-logo">
                     <img th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
                         alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
@@ -54,7 +56,7 @@
                             <a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a>
                         </div>
                     </li>
-                             <div id="login-icon">
+                    <div id="login-icon">
             <a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i>  Meu Perfil   </a>
             <a th:href="@{/logout}" th:if="${usuarioLogado}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff"></i>  Sair</a>
             <a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
@@ -62,17 +64,24 @@
                 </ul>
             </div>
         </nav>
-
-    </header>
-    <main class="termos-container">
-        <h1>Sobre nós</h1>
-        <p class="sobre-nos">Somos uma equipe de três alunos da FATEC Rubens Lara, localizada na Baixada Santista. Este projeto representa o culminar de nossos esforços como parte do trabalho de conclusão do curso de Sistemas para Internet, iniciado há pouco menos de um ano.</p>
-        <h3>Quem somos:</h3>
-        <p>A equipe de desenvolvedores é composta pelos graduandos Cíntia Karolliny, Eduardo Caldas e Gustavo Tunes, que trabalharam juntos para criar um site de notícias sobre saúde na região, de forma dinâmica e com diferentes perspectivas na seleção e apresentação das notícias</p>
-        <h3>Nosso Propósito:</h3>
-        <p>Nosso objetivo ao criar o SIMS, foi desenvolver um sistema de filtragem de notícias regionais da Baixada Santista. Queremos ser uma fonte confiável e eficaz para a divulgação de informações pertinentes à saúde e, ao mesmo tempo, contribuir para a redução da propagação de notícias imprecisas ou falsas em nossa comunidade.</p>
-        <h3>Agradecimentos Especiais:</h3>
-        <p>Queremos expressar nossa gratidão à FATEC Rubens Lara por nos proporcionar a oportunidade de desenvolver este projeto como parte de nosso curso. Agradecemos também ao nosso orientador Profº. Me. Davi Silvester Moreira dos Reis, por nos acompanhar e auxiliar durante a elaboração e desenvolvimento do projeto.</p>
+    </header><br>
+    <main class="perfil">
+        <div class="usuario">
+            <form action="" class="mudarPerfil">
+                <label for="nomeUsuario">Nome de usuário:</label>
+                <input type="text" name="nomeUsuario" id="nomeUsuario">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email">
+                <label for="senha">senha:</label>
+                <input type="password" name="senha" id="senha" minlength="6">
+                <label for="dataNascimento">Data de nascimento:</label>
+                <input type="date" name="dataNascimento" id="dataNascimento" min="1950-01-01" max="2007-01-01">
+                <button type="submit" class="btn btn-success" id="botaoAtualizar"
+                    onclick="alert('Perfil Atualizado!')">Atualizar Perfil</button>
+            </form>
+        </div>
     </main>
     <footer>
         <div class="icons">
@@ -83,7 +92,7 @@
         <div class="infos">
             <a th:href="@{/sobre}">
                 <p>Sobre nós</p>
-            </a>
+              </a>
 
             <a th:href="@{/termos}">
                 <p>Termos de Uso</p>
@@ -97,7 +106,7 @@
             <p>Esse é um projeto de trabalho acadêmico do curso de SI FATEC Rubens Lara.</p>
         </div>
     </footer>
-    <script th:src="@{./scripts/main.js}"></script>
+    <script src="./scripts/main.js"></script>
     <!-- Bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

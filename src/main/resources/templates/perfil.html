@@ -2,139 +2,264 @@
 <html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" th:href="@{/styles/main.css}">
-    <link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-194JYMPFEE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meu Perfil</title>
+	<link rel="icon" th:href="@{/images/SIMS_CORACAO_VERDE.png}" type="image/x-icon">
+	<link rel="stylesheet" th:href="@{/styles/main.css}">
+	<link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-194JYMPFEE"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
 
-        gtag('config', 'G-194JYMPFEE');
-    </script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-194JYMPFEE');
+	</script>
 </head>
 
-<body style="background-color: #f5f5f5;">
-    <header class="home-header">
-        <nav class="navbar navbar-expand-lg navbar-light bg">
-            <a th:href="@{/}" onclick="ScrollTop()">
-                <div class="div-logo">
-                    <img th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
-                        alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
-                </div>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                id="toggle-navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Baixada Santista
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
-                            <a class="dropdown-item" th:href="@{/santos}">Santos</a>
-                            <a class="dropdown-item" th:href="@{/praiagrande}">Praia Grande</a>
-                            <a class="dropdown-item" th:href="@{/saovicente}">São Vicente</a>
-                            <a class="dropdown-item" th:href="@{/guaruja}">Guarujá</a>
-                            <a class="dropdown-item" th:href="@{/cubatao}">Cubatão</a>
-                            <a class="dropdown-item" th:href="@{/itanhaem}">Itanhaém</a>
-                            <a class="dropdown-item" th:href="@{/peruibe}">Peruíbe</a>
-                            <a class="dropdown-item" th:href="@{/bertioga}">Bertioga</a>
-                            <a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a>
-                        </div>
-                    </li>
-                    <div id="login-icon">
-                        <a th:href="@{/login}"><i class="fa-solid fa-user"></i> Login</a>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </header><br>
-    <main class="perfil">
-        <div class="usuario">
-            <form action="" class="mudarPerfil">
-                <label for="nomeUsuario">Nome de usuário:</label>
-                <input type="text" name="nomeUsuario" id="nomeUsuario">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome">
-                <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email">
-                <label for="senha">senha:</label>
-                <input type="password" name="senha" id="senha">
-                <label for="dataNascimento">Data de nascimento:</label>
-                <input type="date" name="dataNascimento" id="dataNascimento">
-                <button type="submit" class="btn btn-success" id="botaoAtualizar"
-                    onclick="alert('Perfil Atualizado!')">Atualizar Perfil</button>
-            </form>
-            <div class="containerImagem">
-                <div class="imagemPerfil">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="175" height="175" fill="#012030"
-                        class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                    </svg>
-                    <button class="trocarImagem" onclick="toggleDropdown()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f5f5f5"
-                            class="bi bi-camera-fill" viewBox="0 0 16 16">
-                            <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                            <path
-                                d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
-                        </svg>
-                        <ul id="menuImagem">
-                            <li onclick="removerFoto()">Remover Foto</li>
-                            <li onclick="adicionarFoto()">Adicionar Foto</li>
-                        </ul>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="icons">
-            <a href="https://www.instagram.com/projeto.sims/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/projeto-sims-5610002a1/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=appsims.suporte@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-        <div class="infos">
-            <a th:href="@{/sobre}">
-                <p>Sobre nós</p>
-              </a>
+<body style="background-color: #f5f5f5; display: flex; margin: 0;">
 
-            <a th:href="@{/termos}">
-                <p>Termos de Uso</p>
-            </a>
+	<div style="flex: 1;">
 
-            <a th:href="@{/privacidade}">
-                <p>Política de Privacidade</p>
-            </a>
+		<header class="home-header">
+			<nav class="navbar navbar-expand-lg navbar-light bg">
+				<a th:href="@{/}" onclick="ScrollTop()">
+					<div class="div-logo">
+						<img loading="lazy" th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
+							alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
+					</div>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation" id="toggle-navbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Baixada Santista
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
+								<a class="dropdown-item" th:href="@{/santos}">Santos</a>
+								<a class="dropdown-item" th:href="@{/praiagrande}">Praia Grande</a>
+								<a class="dropdown-item" th:href="@{/saovicente}">São Vicente</a>
+								<a class="dropdown-item" th:href="@{/guaruja}">Guarujá</a>
+								<a class="dropdown-item" th:href="@{/cubatao}">Cubatão</a>
+								<a class="dropdown-item" th:href="@{/itanhaem}">Itanhaém</a>
+								<a class="dropdown-item" th:href="@{/peruibe}">Peruíbe</a>
+								<a class="dropdown-item" th:href="@{/bertioga}">Bertioga</a>
+								<a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a>
+							</div>
+						</li>
+						<div id="login-icon">
+            <a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i>  Meu Perfil   </a>
+            <a th:href="@{/logout}" th:if="${usuarioLogado}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff"></i>  Sair</a>
+            <a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
+          </div>
+					</ul>
+				</div>
+			</nav>
+		</header><br>
+
+		<main class="perfil">
+			<div style="margin-left: -200px; padding: 20px 20px 20px 0;">
+				<div style="border: 1px solid #333; padding: 25px;" class="mudarPerfil">
+
+					<h2 style="margin-left: 100px; margin-bottom: 50px; ">Meu Perfil</h2>
+					<br>
+
+					<p><strong>Usuário:</strong> <span id="nmUsuario" th:text="${usuario.nomeUsuario}"></span></p>
+					<p><strong>Nome Completo:</strong> <span id="nm" th:text="${usuario.nomeCompleto}"></span></p>
+					<p><strong>E-mail:</strong> <span id="em" th:text="${usuario.email}"></span></p>
+					<p><strong>Senha:</strong> <span id="sen">******</span></p>
+					<p><strong>Data de nascimento:</strong> <span id="dtNascimento"
+							th:text="${usuario.dataNascimento}"></span></p>
+
+					<br>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">
+						Alterar Dados
+					</button>
+					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalExcluir">
+						Excluir Conta
+					</button>
+				</div>
+
+				<div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Alterar Dados</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+
+								<form action="/alterar-dados" th:object="${usuario}" method="post">
+							
+									<label for="nomeUsuario">Nome de Usuário:</label>
+									<input type="text" th:field="*{nomeUsuario}" id="nomeUsuario" maxlength="20">
+
+									<label for="nomeCompleto">Nome Completo:</label>
+									<input type="text" th:field="*{nomeCompleto}" id="nome">
+
+									<label for="email">E-mail:</label>
+									<input type="email" th:field="*{email}" id="email">
+
+									<label for="senha">Senha:</label>
+									<input type="password" th:field="*{senha}" id="senha" minlength="6">
+
+									<label for="dataNascimento">Data de Nascimento:</label>
+									<input type="date" th:field="*{dataNascimento}" id="dataNascimento" th:value="${usuario.dataNascimento != null ? #dates.format(usuario.dataNascimento, 'yyyy-MM-dd') : null}" min="1950-01-01"
+										max="2007-01-01">
+
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">Cancelar</button>
+										<button type="submit" class="btn btn-primary">Salvar Alterações</button>
+									</div>
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="modal fade" id="ModalExcluir" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Excluir Conta</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+
+								<h6> Você realmente deseja excluir sua conta? </h6>
+								<br>
+								<h6> *Uma vez excluída, não é possível recuperá-la </h6>
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+								<button type="button" class="btn btn-primary" id="btnExcluirDefinitivamente"
+									data-usuario-id="${usuario.id}" th:attr="data-usuario-id=${usuario.id}">
+									Excluir Definitivamente
+								</button>
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div style="flex: 1; padding:45px; margin-left: 50px; margin-top: 30px;">
+    <h2 style="margin-left: 100px;">Notícias Salvas</h2>
+
+    <div class="container card-list">
+    <div class="row">
+        <div th:each="noticia : ${noticiasList}" class="col-md-4">
+            <div class="card mb-4">
+                <img class="card-img-top" th:src="${noticia.imagem}" alt="Imagem da Notícia" loading="lazy">
+                <div class="card-body">
+                    <p class="card-title" th:text="${noticia.data}"></p>
+                    <h5 class="card-title" th:text="${noticia.title}">Título da Notícia</h5>
+                    <p class="card-text" th:text="${noticia.content}">Conteúdo da Notícia</p>
+                    <a th:href="@{${noticia.urlNoticia}}" class="btn btn-primary">Leia Mais</a>
+                </div>
+            </div>
         </div>
-        <div class="sub-footer">
-            <p>Esse é um projeto de trabalho acadêmico do curso de SI FATEC Rubens Lara.</p>
-        </div>
-    </footer>
-    <script src="./scripts/main.js"></script>
-    <!-- Bootstrap scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    </div>
+</div>
+
+		</main>
+
+		<footer>
+			<div class="icons">
+				<a href="https://www.instagram.com/projeto.sims/" target="_blank"><i
+						class="fa-brands fa-instagram"></i></a>
+				<a href="https://www.linkedin.com/in/projeto-sims-5610002a1/" target="_blank"><i
+						class="fa-brands fa-linkedin-in"></i></a>
+				<a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=appsims.suporte@gmail.com" target="_blank"><i
+						class="fa-solid fa-envelope"></i></a>
+			</div>
+			<div class="infos">
+				<a th:href="@{/sobre}">
+					<p>Sobre nós</p>
+				</a>
+
+				<a th:href="@{/termos}">
+					<p>Termos de Uso</p>
+				</a>
+
+				<a th:href="@{/privacidade}">
+					<p>Política de Privacidade</p>
+				</a>
+			</div>
+			<div class="sub-footer">
+				<p>Esse é um projeto de trabalho acadêmico do curso de SI FATEC Rubens Lara.</p>
+			</div>
+		</footer>
+		<script src="./scripts/main.js"></script>
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
+	<script>
+		$(document).ready(function () {
+			$('#btnExcluirDefinitivamente').click(function () {
+				var usuarioId = $(this).data('usuario-id');
+				excluirUsuario(usuarioId);
+			});
+
+			function excluirUsuario(usuarioId) {
+				jQuery.ajax({
+					url: '/excluir-usuario/' + usuarioId,
+					type: 'DELETE',
+					success: function (data) {
+						console.log('Exclusão definitiva realizada com sucesso');
+						window.location.href = '/login';
+					},
+					error: function (error) {
+						console.error('Erro ao excluir definitivamente:', error);
+					}
+				});
+			}
+		});
+
+	</script>
+
+
+
+
+
 </body>
 
 </html>
