@@ -30,7 +30,7 @@
 
 <body style="background-color: #f5f5f5; display: flex; margin: 0;">
 
-	<div style="flex: 1;">
+	<div class="main-container">
 
 		<header class="home-header">
 			<nav class="navbar navbar-expand-lg navbar-light bg">
@@ -74,7 +74,7 @@
 			</nav>
 		</header><br>
 
-		<main class="perfil">
+<main class="perfil">
 			<div style="margin-left: -200px; padding: 20px 20px 20px 0;">
 				<div style="border: 1px solid #333; padding: 25px;" class="mudarPerfil">
 
@@ -163,33 +163,31 @@
 									Excluir Definitivamente
 								</button>
 
-
-
-
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+<div style="margin-left:200px;">
+<div style="margin-top: 90px;">
+  <h2 style="text-align: center;">Notícias Salvas</h2>
+</div>
+			<div style="max-height: calc(80vh - 50px); overflow-y: auto; margin-top: 15px;">
 
-			<div style="flex: 1; padding:45px; margin-left: 50px; margin-top: 30px;">
-    <h2 style="margin-left: 100px;">Notícias Salvas</h2>
-
-    <div class="container card-list">
     <div class="row">
-        <div th:each="noticia : ${noticiasList}" class="col-md-4">
-            <div class="card mb-4">
-                <img class="card-img-top" th:src="${noticia.imagem}" alt="Imagem da Notícia" loading="lazy">
+        <div th:each="noticia : ${noticiasList}" class="col-md-6">
+            <a th:href="@{${noticia.urlNoticia}}" class="card mb-4" style="height: 500px;">
+                <img class="card-img-top" th:src="${noticia.imagem}" alt="Imagem da Notícia" loading="lazy" style="height: 200px; object-fit: cover;">
                 <div class="card-body">
                     <p class="card-title" th:text="${noticia.data}"></p>
                     <h5 class="card-title" th:text="${noticia.title}">Título da Notícia</h5>
                     <p class="card-text" th:text="${noticia.content}">Conteúdo da Notícia</p>
-                    <a th:href="@{${noticia.urlNoticia}}" class="btn btn-primary">Leia Mais</a>
+                </div>
+            </a>
                 </div>
             </div>
+			</div>
         </div>
-    </div>
-</div>
 
 		</main>
 

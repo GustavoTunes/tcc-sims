@@ -50,19 +50,23 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/cadastrar")
-	public ModelAndView cadastrarUsuario(@Valid UsuarioDTO data, HttpServletResponse response) throws IOException {
-		if (usuarioRepository.findByEmail(data.email()) != null)
-			response.sendRedirect("/falhou");
+	public ModelAndView cadastrarUsuario(@Valid UsuarioDTO data, HttpSession session, HttpServletResponse response) throws IOException {
+	    ModelAndView modelAndView = new ModelAndView("index"); // Inicializa o ModelAndView
 
-		Usuario novoUsuario = new Usuario(data.nomeCompleto(), data.nomeUsuario(), data.email(), data.senha(),
-				data.dataNascimento());
+	    if (usuarioRepository.findByEmail(data.email()) != null) {
+	        response.sendRedirect("/cadastro");
+	    } else {
+	        Usuario novoUsuario = new Usuario(data.nomeCompleto(), data.nomeUsuario(), data.email(), data.senha(),
+	                data.dataNascimento());
+	        session.setAttribute("email", novoUsuario.getEmail());
 
-		this.usuarioRepository.save(novoUsuario);
-		ModelAndView modelAndView = new ModelAndView("index"); // Redireciona para a página de login
-	    modelAndView.addObject("usuarioLogado", true); // Adiciona um atributo se necessário
+	        this.usuarioRepository.save(novoUsuario);
+	        modelAndView.addObject("usuarioLogado", true); // Adiciona um atributo se necessário
+	    }
 
 	    return modelAndView;
 	}
+
 
 	@GetMapping("/usuarios")
 	public ResponseEntity<List<Usuario>> listarUsuarios() {

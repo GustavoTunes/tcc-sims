@@ -2,130 +2,139 @@
 <html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Termos de Uso</title>
-  <link rel="stylesheet" th:href="@{/styles/main.css}">
-  <link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-194JYMPFEE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Termos de Uso</title>
+	<link rel="icon" th:href="@{/images/SIMS_CORACAO_VERDE.png}" type="image/x-icon">
+	<link rel="stylesheet" th:href="@{/styles/main.css}">
+	<link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-194JYMPFEE"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-    gtag('config', 'G-194JYMPFEE');
-  </script>
+		gtag('config', 'G-194JYMPFEE');
+	</script>
 </head>
 
 <body>
-  <header class="home-header">
-    <nav class="navbar navbar-expand-lg navbar-light bg">
-      <a th:href="@{/}">
-        <div class="div-logo">
-          <img th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
-            alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
-        </div>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="toggle-navbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Baixada Santista
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
-              <a class="dropdown-item" th:href="@{/santos}">Santos</a>
-              <a class="dropdown-item" th:href="@{/praiagrande}">Praia Grande</a>
-              <a class="dropdown-item" th:href="@{/saovicente}">São Vicente</a>
-              <a class="dropdown-item" th:href="@{/guaruja}">Guarujá</a>
-              <a class="dropdown-item" th:href="@{/cubatao}">Cubatão</a>
-              <a class="dropdown-item" th:href="@{/itanhaem}">Itanhaém</a>
-              <a class="dropdown-item" th:href="@{/peruibe}">Peruíbe</a>
-              <a class="dropdown-item" th:href="@{/bertioga}">Bertioga</a>
-              <a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a>
-            </div>
-          </li>
-                    <div id="login-icon">
-            <a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i>  Meu Perfil   </a>
-            <a th:href="@{/logout}" th:if="${usuarioLogado}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff"></i>  Sair</a>
-            <a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
-          </div>
-        </ul>
-      </div>
-    </nav>
+	<header class="home-header">
+		<nav class="navbar navbar-expand-lg navbar-light bg">
+			<a th:href="@{/}">
+				<div class="div-logo">
+					<img th:src="@{/images/SIMS_VERDE_PASTEL.svg}" id="logo"
+						alt="Logo do Projeto SIMS, contendo um desenho de coração com o ritmo sinusal no meio na cor verde, com a sigla 'SIMS' escrita abaixo ">
+				</div>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+				id="toggle-navbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navbar">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Baixada Santista
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
+							<a class="dropdown-item" th:href="@{/santos}">Santos</a>
+							<a class="dropdown-item" th:href="@{/praiagrande}">Praia Grande</a>
+							<a class="dropdown-item" th:href="@{/saovicente}">São Vicente</a>
+							<a class="dropdown-item" th:href="@{/guaruja}">Guarujá</a>
+							<a class="dropdown-item" th:href="@{/cubatao}">Cubatão</a>
+							<a class="dropdown-item" th:href="@{/itanhaem}">Itanhaém</a>
+							<a class="dropdown-item" th:href="@{/peruibe}">Peruíbe</a>
+							<a class="dropdown-item" th:href="@{/bertioga}">Bertioga</a>
+							<a class="dropdown-item" th:href="@{/mongagua}">Mongaguá</a>
+						</div>
+					</li>
+					<div id="login-icon">
+						<a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i> Meu Perfil
+						</a>
+						<a th:href="@{/logout}" th:if="${usuarioLogado}"><i class="fa-solid fa-arrow-right-from-bracket"
+								style="color: #ffffff"></i>  Sair</a>
+						<a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
+					</div>
+				</ul>
+			</div>
+		</nav>
 
-  </header>
-  <main class="termos-container">
-    <h1>Termos de Uso</h1>
-    <h4>1. Cadastro e Informações Pessoais:</h4>
-    <p>1.1 Para acessar determinadas funcionalidades do site, será necessário criar uma conta. Ao se cadastrar, você
-      concorda em fornecer informações completas e atualizadas, incluindo seu nome, endereço de e-mail e data de
-      nascimento.</p>
-    <p>1.2 Você é responsável por manter a confidencialidade de sua senha e conta. Todas as atividades realizadas
-      através de sua conta são de sua responsabilidade.</p>
-    <hr>
-    <h4>2. Uso Aceitável:</h4>
-    <p>2.1 Você concorda em utilizar o site de acordo com todas as leis aplicáveis e estes termos de uso.</p>
-    <hr>
-    <h4>3. Filtragem de Notícias:</h4>
-    <p>3.1 O Portal de Notícias da Baixada Santista por Cidade utiliza tecnologias de filtragem para apresentar notícias
-      específicas por cidade. No entanto, não possuímos propriedade intelectual sob as notícias filtradas e não
-      garantimos a precisão ou atualidade do conteúdo exibido.</p>
-    <hr>
-    <h4>4. Privacidade:</h4>
-    <p>4.1 Ao utilizar o site, você concorda com nossa Política de Privacidade, disponível separadamente, que detalha
-      como suas informações são coletadas, utilizadas e protegidas.</p>
-    <hr>
-    <h4>5. Menores de Idade:</h4>
-    <p>5.1 Nosso site não é destinado a menores de 16 anos. Não coletamos intencionalmente informações de usuários
-      menores de idade sem o consentimento dos pais ou responsáveis legais.</p>
-    <hr>
-    <h4>6. Modificações nos Termos:</h4>
-    <p>6.1 Reservamo-nos o direito de modificar estes termos de uso a qualquer momento. Alterações significativas serão
-      comunicadas por meio do site ou por e-mail.</p>
-  </main>
-  <footer>
-    <div class="icons">
-      <a href="https://www.instagram.com/projeto.sims/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/projeto-sims-5610002a1/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=appsims.suporte@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-  </div>
-    <div class="infos">
-      <a th:href="@{/sobre}">
-        <p>Sobre nós</p>
-      </a>
+	</header>
+	<main class="termos-container">
+		<h1>Termos de Uso</h1>
+		<h4>1. Cadastro e Informações Pessoais:</h4>
+		<p>1.1 Para acessar determinadas funcionalidades do site, será necessário criar uma conta. Ao se cadastrar, você
+			concorda em fornecer informações completas e atualizadas, incluindo seu nome, endereço de e-mail e data de
+			nascimento.</p>
+		<p>1.2 Você é responsável por manter a confidencialidade de sua senha e conta. Todas as atividades realizadas
+			através de sua conta são de sua responsabilidade.</p>
+		<hr>
+		<h4>2. Uso Aceitável:</h4>
+		<p>2.1 Você concorda em utilizar o site de acordo com todas as leis aplicáveis e estes termos de uso.</p>
+		<hr>
+		<h4>3. Filtragem de Notícias:</h4>
+		<p>3.1 O Portal de Notícias da Baixada Santista por Cidade utiliza tecnologias de filtragem para apresentar
+			notícias
+			específicas por cidade. No entanto, não possuímos propriedade intelectual sob as notícias filtradas e não
+			garantimos a precisão ou atualidade do conteúdo exibido.</p>
+		<hr>
+		<h4>4. Privacidade:</h4>
+		<p>4.1 Ao utilizar o site, você concorda com nossa Política de Privacidade, disponível separadamente, que
+			detalha
+			como suas informações são coletadas, utilizadas e protegidas.</p>
+		<hr>
+		<h4>5. Menores de Idade:</h4>
+		<p>5.1 Nosso site não é destinado a menores de 16 anos. Não coletamos intencionalmente informações de usuários
+			menores de idade sem o consentimento dos pais ou responsáveis legais.</p>
+		<hr>
+		<h4>6. Modificações nos Termos:</h4>
+		<p>6.1 Reservamo-nos o direito de modificar estes termos de uso a qualquer momento. Alterações significativas
+			serão
+			comunicadas por meio do site ou por e-mail.</p>
+	</main>
+	<footer>
+		<div class="icons">
+			<a href="https://www.instagram.com/projeto.sims/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+			<a href="https://www.linkedin.com/in/projeto-sims-5610002a1/" target="_blank"><i
+					class="fa-brands fa-linkedin-in"></i></a>
+			<a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=appsims.suporte@gmail.com" target="_blank"><i
+					class="fa-solid fa-envelope"></i></a>
+		</div>
+		<div class="infos">
+			<a th:href="@{/sobre}">
+				<p>Sobre nós</p>
+			</a>
 
-      <a th:href="@{/termos}">
-        <p>Termos de Uso</p>
-      </a>
+			<a th:href="@{/termos}">
+				<p>Termos de Uso</p>
+			</a>
 
-      <a th:href="@{/privacidade}">
-        <p>Política de Privacidade</p>
-      </a>
-    </div>
-    <div class="sub-footer">
-      <p>Esse é um projeto de trabalho acadêmico do curso de SI FATEC Rubens Lara.</p>
-    </div>
-  </footer>
-  <script th:src="@{./scripts/main.js}"></script>
-  <!-- Bootstrap scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+			<a th:href="@{/privacidade}">
+				<p>Política de Privacidade</p>
+			</a>
+		</div>
+		<div class="sub-footer">
+			<p>Esse é um projeto de trabalho acadêmico do curso de SI FATEC Rubens Lara.</p>
+		</div>
+	</footer>
+	<script th:src="@{./scripts/main.js}"></script>
+	<!-- Bootstrap scripts -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>
