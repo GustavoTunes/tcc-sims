@@ -151,7 +151,7 @@ public class NewsController {
 
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 
 								String urlNoticia = link.attr("href");
 
@@ -197,7 +197,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 
 								String urlNoticia = link.attr("href");
 
@@ -245,7 +245,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 
 								String urlNoticia = link.attr("href");
 
@@ -290,7 +290,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 
 								String urlNoticia = link.attr("href");
 
@@ -336,7 +336,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 
 								String urlNoticia = "https://www.mongagua.sp.gov.br" + link.attr("href");
 
@@ -390,7 +390,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 
 								String urlNoticia = link.attr("href");
 
@@ -435,7 +435,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 							// Verifique se o link não é nulo e se já processou 9 links
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 								String urlNoticia = "https://www.praiagrande.sp.gov.br/pgnoticias/noticias/"
 										+ link.attr("href");
 
@@ -484,7 +484,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 
 								String urlNoticia = link.attr("href");
 
@@ -527,7 +527,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 10) {
+							if (link != null && contadorLinks < 9) {
 
 								String urlNoticia = "https://www.saovicente.sp.gov.br/" + link.attr("href");
 
