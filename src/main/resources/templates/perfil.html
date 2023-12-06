@@ -65,20 +65,24 @@
 							</div>
 						</li>
 						<div id="login-icon">
-            <a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i>  Meu Perfil   </a>
-            <a th:href="@{/logout}" th:if="${usuarioLogado}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff"></i>  Sair</a>
-            <a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
-          </div>
+							<a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i> Meu
+								Perfil </a>
+							<a th:href="@{/logout}" th:if="${usuarioLogado}"><i
+									class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff"></i>  Sair</a>
+							<a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i>
+								Login</a>
+						</div>
 					</ul>
 				</div>
 			</nav>
 		</header><br>
 
-<main class="perfil">
-			<div style="margin-left: -200px; padding: 20px 20px 20px 0;">
-				<div style="border: 1px solid #333; padding: 25px;" class="mudarPerfil">
+		<main class="perfil">
+			<div style="margin-left: -200px;">
+				<div style="border: 7px dotted #333; width: 400px; padding: 25px; margin-top: 115px;"
+					class="mudarPerfil">
 
-					<h2 style="margin-left: 100px; margin-bottom: 50px; ">Meu Perfil</h2>
+					<h2 style="text-align: center; margin-bottom: 25px; ">Meu Perfil</h2>
 					<br>
 
 					<p><strong>Usuário:</strong> <span id="nmUsuario" th:text="${usuario.nomeUsuario}"></span></p>
@@ -87,14 +91,17 @@
 					<p><strong>Senha:</strong> <span id="sen">******</span></p>
 					<p><strong>Data de nascimento:</strong> <span id="dtNascimento"
 							th:text="${usuario.dataNascimento}"></span></p>
-
 					<br>
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">
-						Alterar Dados
-					</button>
-					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalExcluir">
-						Excluir Conta
-					</button>
+					<div style="display: flex; justify-content: center; align-items: center;">
+
+						<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalEditar"
+							style="margin-right: 20px;">
+							Alterar Dados
+						</button>
+						<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalExcluir">
+							Excluir Conta
+						</button>
+					</div>
 				</div>
 
 				<div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -109,28 +116,31 @@
 							</div>
 							<div class="modal-body">
 
-								<form action="/alterar-dados" th:object="${usuario}" method="post">
-							
+								<p style="color: red;"> Estes são seus dados. Altere apenas o que realmente quiser que
+									seja modificado! </p>
+								<form th:object="${usuario}">
 									<label for="nomeUsuario">Nome de Usuário:</label>
-									<input type="text" th:field="*{nomeUsuario}" id="nomeUsuario" maxlength="20">
+									<input type="text" th:field="*{nomeUsuario}" id="alterar-nome-usuario"
+										maxlength="20" required>
 
-									<label for="nomeCompleto">Nome Completo:</label>
-									<input type="text" th:field="*{nomeCompleto}" id="nome">
+									<label for="alterar-nome-completo">Nome Completo:</label>
+									<input type="text" th:field="*{nomeCompleto}" id="alterar-nome-completo" required>
 
 									<label for="email">E-mail:</label>
-									<input type="email" th:field="*{email}" id="email">
+									<input type="email" th:field="*{email}" id="alterar-email" required>
 
 									<label for="senha">Senha:</label>
-									<input type="password" th:field="*{senha}" id="senha" minlength="6">
+									<input type="password" th:field="*{senha}" id="alterar-senha" minlength="6"
+										required>
 
 									<label for="dataNascimento">Data de Nascimento:</label>
-									<input type="date" th:field="*{dataNascimento}" id="dataNascimento" th:value="${usuario.dataNascimento != null ? #dates.format(usuario.dataNascimento, 'yyyy-MM-dd') : null}" min="1950-01-01"
-										max="2007-01-01">
+									<input type="date" th:field="*{dataNascimento}" id="alterar-data-nascimento"
+										min="1950-01-01" max="2007-01-01" required>
 
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 											data-dismiss="modal">Cancelar</button>
-										<button type="submit" class="btn btn-primary">Salvar Alterações</button>
+									<button type="submit" class="btn btn-success" onclick="enviarFormulario();">Salvar Alterações</button>
 									</div>
 								</form>
 							</div>
@@ -151,43 +161,45 @@
 							</div>
 							<div class="modal-body">
 
-								<h6> Você realmente deseja excluir sua conta? </h6>
+								<p style="font-size: 20px;"> Você realmente deseja excluir sua conta? </p>
 								<br>
-								<h6> *Uma vez excluída, não é possível recuperá-la </h6>
+								<p style="color: red;"> *Uma vez excluída, não é possível recuperá-la!</p>
 
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-								<button type="button" class="btn btn-primary" id="btnExcluirDefinitivamente"
+							<button type="button" class="btn btn-success" id="btnExcluirDefinitivamente"
 									data-usuario-id="${usuario.id}" th:attr="data-usuario-id=${usuario.id}">
-									Excluir Definitivamente
-								</button>
+								Excluir Definitivamente
+							</button>
 
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-<div style="margin-left:200px;">
-<div style="margin-top: 90px;">
-  <h2 style="text-align: center;">Notícias Salvas</h2>
-</div>
-			<div style="max-height: calc(80vh - 50px); overflow-y: auto; margin-top: 15px;">
+			<div style="margin-left:100px;">
+				<div style="margin-top: 30px; margin-bottom: 50px;">
+					<h2 style="text-align: center;">Notícias Salvas</h2>
+				</div>
+				<div style="max-height: calc(80vh - 50px); overflow-y: auto; margin-top: 15px;">
 
-    <div class="row">
-        <div th:each="noticia : ${noticiasList}" class="col-md-6">
-            <a th:href="@{${noticia.urlNoticia}}" class="card mb-4" style="height: 500px;">
-                <img class="card-img-top" th:src="${noticia.imagem}" alt="Imagem da Notícia" loading="lazy" style="height: 200px; object-fit: cover;">
-                <div class="card-body">
-                    <p class="card-title" th:text="${noticia.data}"></p>
-                    <h5 class="card-title" th:text="${noticia.title}">Título da Notícia</h5>
-                    <p class="card-text" th:text="${noticia.content}">Conteúdo da Notícia</p>
-                </div>
-            </a>
-                </div>
-            </div>
+					<div class="row">
+						<div th:each="noticia : ${noticiasList}" class="col-md-6">
+							<a th:href="@{${noticia.urlNoticia}}" target="_blank" class="card mb-4"
+								style="height: 500px;">
+								<img class="card-img-top" th:src="${noticia.imagem}" alt="Imagem da Notícia"
+									loading="lazy" style="height: 200px; object-fit: cover;">
+								<div class="card-body">
+									<p class="card-title" th:text="${noticia.data}"></p>
+									<h5 class="card-title" th:text="${noticia.title}">Título da Notícia</h5>
+									<p class="card-text" th:text="${noticia.content}">Conteúdo da Notícia</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
-        </div>
 
 		</main>
 
@@ -230,32 +242,62 @@
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 
-	<script>
-		$(document).ready(function () {
-			$('#btnExcluirDefinitivamente').click(function () {
-				var usuarioId = $(this).data('usuario-id');
-				excluirUsuario(usuarioId);
-			});
+	<script th:inline="javascript">
+	/*<![CDATA[*/
 
-			function excluirUsuario(usuarioId) {
-				jQuery.ajax({
-					url: '/excluir-usuario/' + usuarioId,
-					type: 'DELETE',
-					success: function (data) {
-						console.log('Exclusão definitiva realizada com sucesso');
-						window.location.href = '/login';
-					},
-					error: function (error) {
-						console.error('Erro ao excluir definitivamente:', error);
-					}
-				});
-			}
+	$(document).ready(function () {
+		$('#btnExcluirDefinitivamente').click(function () {
+			var usuarioId = $(this).data('usuario-id');
+			excluirUsuario(usuarioId);
 		});
 
-	</script>
+		function excluirUsuario(usuarioId) {
+			jQuery.ajax({
+				url: '/excluir-usuario/' + usuarioId,
+				type: 'DELETE',
+				success: function (data) {
+					console.log('Exclusão definitiva realizada com sucesso');
+					window.location.href = '/login';
+				},
+				error: function (error) {
+					console.error('Erro ao excluir definitivamente:', error);
+				}
+			});
+		}
+	});
 
+	function enviarFormulario() {
+		let nomeUsuario = $('#alterar-nome-usuario').val();
+		let nomeCompleto = $('#alterar-nome-completo').val();
+		let email = $('#alterar-email').val();
+		let senha = $('#alterar-senha').val();
+		let dataNascimento = $('#alterar-data-nascimento').val();
 
+		$.post({
+			url: "/alterar-usuario",
+			contentType: 'application/json',
+			data: JSON.stringify({
+				nomeUsuario: nomeUsuario,
+				nomeCompleto: nomeCompleto,
+				email: email,
+				senha: senha,
+				dataNascimento: dataNascimento,
+			})
+		})
+				.done(function(data) {
+					// Callback de sucesso
+					console.log('Dados enviados com sucesso:', data);
 
+					// Recarregar a página
+					location.reload();
+				})
+				.fail(function(error) {
+					console.error('Erro ao enviar dados:', error);
+				});
+	}
+
+	/*]]>*/
+</script>
 
 
 </body>

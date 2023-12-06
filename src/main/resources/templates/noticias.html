@@ -115,10 +115,7 @@
 					</div>
 				</a>
 				<label class="favorite-button">
-					<input type="checkbox" name="favorito" class="favorito-checkbox"
-						th:data-noticia-imagem="${noticia.imagem}" th:data-noticia-title="${noticia.title}"
-						th:data-noticia-data="${noticia.data}" th:data-noticia-content="${noticia.content}"
-						th:data-noticia-url="${noticia.urlNoticia}" data-toggle="modal" data-target="#favoritoModal">
+					<input type="checkbox" name="favorito" class="favorito-checkbox" id="checkbox" th:checked="${noticia.checkBoxAtivo}" th:data-noticia-imagem="${noticia.imagem}" th:data-noticia-title="${noticia.title}" th:data-noticia-data="${noticia.data}" th:data-noticia-content="${noticia.content}" th:data-noticia-url="${noticia.urlNoticia}" th:data-logado="${usuarioLogado}" >
 					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
 						class="bi bi-star-fill" viewBox="0 0 16 16" id="star-label">
 						<path
@@ -126,8 +123,8 @@
 					</svg>
 				</label>
 				<hr><br>
-
 			</div>
+			
 			<div class="modal fade" id="favoritoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog" role="document">
@@ -191,29 +188,39 @@
 		/*<![CDATA[*/
 		$(document).ready(function () {
 			$('.favorito-checkbox').change(function () {
-				debugger;
 				let noticiaImagem = $(this).data('noticia-imagem');
 				let noticiaTitulo = $(this).data('noticia-title');
 				let noticiaData = $(this).data('noticia-data');
 				let noticiaContent = $(this).data('noticia-content');
 				let noticiaUrlNoticia = $(this).data('noticia-url');
+				let usuarioLogado = $(this).data('logado');
 				let isChecked = $(this).prop('checked');
 
-				$.post({
-					url: '/alterar-noticia',
-					contentType: 'application/json',
-					data: JSON.stringify({
-						imagem: noticiaImagem,
-						title: noticiaTitulo,
-						data: noticiaData,
-						content: noticiaContent,
-						urlNoticia: noticiaUrlNoticia,
-						checkBoxAtivo: isChecked
-					}),
-					error: function (error) {
-						console.error('Erro ao enviar dados:', error);
-					}
-				});
+				console.log(this);
+				console.log(usuarioLogado);
+				debugger;
+				if(usuarioLogado) {
+					debugger;
+					$.post({
+						url: '/alterar-noticia',
+						contentType: 'application/json',
+						data: JSON.stringify({
+							imagem: noticiaImagem,
+							title: noticiaTitulo,
+							data: noticiaData,
+							content: noticiaContent,
+							urlNoticia: noticiaUrlNoticia,
+							checkBoxAtivo: isChecked
+						}),
+						error: function (error) {
+							console.error('Erro ao enviar dados:', error);
+						}
+					});
+				}else {
+					$(this).prop('checked', false);
+					$('#favoritoModal').modal('show');
+				}
+
 			});
 		});
 		/*]]>*/

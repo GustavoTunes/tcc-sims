@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link rel="icon" th:href="@{/images/SIMS_CORACAO_VERDE.png}" type="image/x-icon">
     <link rel="stylesheet" th:href="@{/styles/main.css}">
     <link rel="stylesheet" href="assets/fontawesome-6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -58,10 +57,9 @@
                         </div>
                     </li>
                     <div id="login-icon">
-            <a th:href="@{/meu-perfil}" th:if="${usuarioLogado}"><i class="fa-solid fa-user"></i>  Meu Perfil   </a>
-            <a th:href="@{/logout}" th:if="${usuarioLogado}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff"></i>  Sair</a>
-            <a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
-          </div>
+                        <a th:href="@{/perfil}" th:if="${usuarioLogado}">Meu Perfil</a>
+            			<a th:href="@{/login}" th:unless="${usuarioLogado}"><i class="fa-solid fa-user"></i> Login</a>
+                    </div>
                 </ul>
             </div>
         </nav>

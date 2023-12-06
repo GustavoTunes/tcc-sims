@@ -31,6 +31,7 @@ import projeto.sims.service.UsuarioService;
 @Controller
 public class NewsController {
 
+
 	private final UsuarioService usuarioService;
 	private final NoticiaService noticiaService;
 	private final UsuarioNoticiaService usuarioNoticiaService;
@@ -125,6 +126,8 @@ public class NewsController {
 
 	public ModelAndView puxarNoticias(String cidade, Model model, HttpSession session) {
 		String email = (String) session.getAttribute("email");
+		Usuario usuario = usuarioService.buscarPorEmail(email);
+
 		String url = siteCidade.get(cidade);
 		String seletor = seletorCidade.get(cidade);
 
@@ -148,7 +151,7 @@ public class NewsController {
 
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 
 								String urlNoticia = link.attr("href");
 
@@ -194,7 +197,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 
 								String urlNoticia = link.attr("href");
 
@@ -242,7 +245,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 
 								String urlNoticia = link.attr("href");
 
@@ -287,7 +290,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 
 								String urlNoticia = link.attr("href");
 
@@ -333,7 +336,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 
 								String urlNoticia = "https://www.mongagua.sp.gov.br" + link.attr("href");
 
@@ -387,7 +390,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 
 								String urlNoticia = link.attr("href");
 
@@ -432,7 +435,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 							// Verifique se o link não é nulo e se já processou 9 links
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 								String urlNoticia = "https://www.praiagrande.sp.gov.br/pgnoticias/noticias/"
 										+ link.attr("href");
 
@@ -481,7 +484,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 
 								String urlNoticia = link.attr("href");
 
@@ -524,7 +527,7 @@ public class NewsController {
 						// Iterar sobre os links dentro do h4
 						for (Element link : links) {
 
-							if (link != null && contadorLinks < 9) {
+							if (link != null && contadorLinks < 10) {
 
 								String urlNoticia = "https://www.saovicente.sp.gov.br/" + link.attr("href");
 
@@ -563,7 +566,7 @@ public class NewsController {
 			}
 
 			// Adicione a lista de notícias ao modelo
-			List<UsuarioNoticia> listaUsuarioNoticias = usuarioNoticiaService.buscarPeloUsuarioEmail(email);
+			List<UsuarioNoticia> listaUsuarioNoticias = usuarioNoticiaService.buscarPeloUsuario(usuario);
 			noticiasList.forEach(favorita ->
 					favorita.setCheckBoxAtivo(
 							listaUsuarioNoticias.stream()
@@ -575,10 +578,15 @@ public class NewsController {
 			);
 
 			model.addAttribute("cidade", cidade);
-			model.addAttribute("suaVariavel", true);
 			model.addAttribute("noticiasList", noticiasList);
 
 			// Retorna a página correspondente a cidade
+
+			if(email != null) {
+				model.addAttribute("usuarioLogado", true);
+			}else {
+				model.addAttribute("usuarioLogado", false);
+			}
 
 			return new ModelAndView("noticias");
 
@@ -607,5 +615,5 @@ public class NewsController {
 			return new ModelAndView("erro");
 		
 	}
-}
+  }
 }

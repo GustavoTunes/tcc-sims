@@ -26,12 +26,16 @@ public class UsuarioNoticiaService {
         usuarioNoticiaRepository.save(usuarioNoticia);
     }
 
-    public UsuarioNoticia buscarPeloUsuarioEmailENoticiaUrl(String email, String url) {
-        return usuarioNoticiaRepository.findByUsuarioEmailAndNoticiaUrl(email, url);
+    public UsuarioNoticia buscarPeloUsuarioEmailENoticiaUrl(Usuario usuario, String url) {
+        return usuarioNoticiaRepository.findByUsuarioAndNoticiaUrl(usuario, url);
     }
 
     public List<UsuarioNoticia> buscarPeloUsuarioEmail(String email) {
        return usuarioNoticiaRepository.findByUsuarioEmail(email);
+    }
+
+    public List<UsuarioNoticia> buscarPeloUsuario(Usuario usuario) {
+        return usuarioNoticiaRepository.findByUsuario(usuario);
     }
 
     @Transactional
@@ -49,7 +53,7 @@ public class UsuarioNoticiaService {
 
     @Transactional
     public void desassociarNoticiaUsuario(Usuario usuario, Noticia noticia) {
-        UsuarioNoticia usuarioNoticia = buscarPeloUsuarioEmailENoticiaUrl(usuario.getEmail(), noticia.getUrlNoticia());
+        UsuarioNoticia usuarioNoticia = buscarPeloUsuarioEmailENoticiaUrl(usuario, noticia.getUrlNoticia());
 
         if (usuarioNoticia != null) {
 

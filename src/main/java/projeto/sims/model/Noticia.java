@@ -16,6 +16,7 @@ public class Noticia {
     private String imagem;
     private String title;
     private String data;
+    @Column(length = 1000)
     private String content;
     private String urlNoticia;
     @OneToMany(mappedBy = "noticia", cascade = CascadeType.ALL)

@@ -17,30 +17,29 @@ import java.util.List;
 @RestController
 public class UsuarioNoticiaController {
 
-	private final UsuarioService usuarioService;
+    private final UsuarioRepository usuarioRepository;
     private final UsuarioNoticiaService usuarioNoticiaService;
+    private final UsuarioService usuarioService;
 
-    public UsuarioNoticiaController(UsuarioNoticiaService usuarioNoticiaService, UsuarioService usuarioService) {
+    public UsuarioNoticiaController(UsuarioNoticiaService usuarioNoticiaService, UsuarioRepository usuarioRepository, UsuarioService usuarioService) {
+        this.usuarioRepository = usuarioRepository;
+        this.usuarioNoticiaService = usuarioNoticiaService;
         this.usuarioService = usuarioService;
-    	this.usuarioNoticiaService = usuarioNoticiaService;
     }
 
     @GetMapping("/meu-perfil")
     public ModelAndView listarNoticiasFavoritas(Model model, HttpSession session) {
         String email = (String) session.getAttribute("email");
+        Usuario usuario = usuarioService.buscarPorEmail(email);
 
-        List<UsuarioNoticia> listaUsuarioNoticias = usuarioNoticiaService.buscarPeloUsuarioEmail(email);
+        List<UsuarioNoticia> listaUsuarioNoticias = usuarioNoticiaService.buscarPeloUsuario(usuario);
         List<Noticia> noticiasList = listaUsuarioNoticias.stream()
                 .map(UsuarioNoticia::getNoticia)
                 .toList();
-        
-        System.out.println(noticiasList);
 
-        Usuario usuario = usuarioService.buscarPorEmail(email);
         model.addAttribute("usuario", usuario);
         model.addAttribute("noticiasList", noticiasList);
 
         return new ModelAndView("perfil").addObject("usuarioLogado", true);
     }
-    
 }
